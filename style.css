@@ -1,0 +1,97 @@
+/* 1. CORE SETUP */
+html { scroll-behavior: smooth; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background-color: #000; color: #fff; font-family: 'Segoe UI', sans-serif; line-height: 1.6; }
+
+/* 2. UNIFIED PARALLAX BACKGROUNDS */
+.hero, #about, #experience, #projects {
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.95)), 
+                url('./hero-bg.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    border-bottom: 1px solid #222;
+}
+
+/* 3. HERO SECTION */
+.hero { padding: 120px 10% 60px; min-height: 85vh; display: flex; flex-direction: column; align-items: center; }
+.welcome-text { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 6px; align-self: flex-start; margin-bottom: 5vh; color: #a100ff; }
+.brand-container { text-align: center; }
+.hero h1 { font-size: 4.5rem; font-weight: 900; text-transform: uppercase; line-height: 1; }
+.hero h1 span { color: #a100ff; }
+.tagline { color: #ccc; font-size: 1.2rem; margin: 20px auto 0 auto; max-width: 650px; text-align: center; display: block; }
+.hero-nav { margin-top: 50px; display: flex; gap: 40px; }
+.hero-nav a { color: #fff; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; transition: 0.3s; padding: 10px 0; border-bottom: 2px solid transparent; }
+.hero-nav a:hover { color: #a100ff; border-bottom: 2px solid #a100ff; }
+
+/* 4. ABOUT SECTION */
+#about { padding: 120px 10%; }
+.profile-container { display: flex; gap: 60px; align-items: flex-start; }
+.profile-image-wrapper { flex: 1; display: flex; justify-content: center; }
+.profile-photo { width: 320px; height: 320px; border-radius: 50%; border: 4px solid #a100ff; box-shadow: 0 0 30px rgba(161, 0, 255, 0.4); object-fit: cover; object-position: center 20%; }
+.profile-text { flex: 2; }
+.intro-text { font-size: 1.3rem; color: #fff; font-weight: 500; margin-bottom: 25px; border-left: 4px solid #a100ff; padding-left: 20px; }
+.profile-text p { margin-bottom: 20px; color: #ccc; font-size: 1.1rem; }
+h2 { font-size: 2.2rem; color: #a100ff; margin-bottom: 25px; font-weight: 800; }
+.skills-grid { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 25px; }
+.skill-item { border: 1px solid #444; padding: 10px 22px; font-size: 0.75rem; font-weight: bold; background: rgba(0, 0, 0, 0.6); text-transform: uppercase; letter-spacing: 1px; }
+
+/* 5. EXPERIENCE SECTION */
+#experience { padding: 120px 10%; }
+.experience-container { max-width: 1000px; margin: 0 auto; }
+.experience-card { 
+    background: rgba(10, 10, 10, 0.9); padding: 50px; 
+    border: 1px solid #222; border-left: 6px solid #a100ff; 
+    display: flex; gap: 40px; flex-wrap: wrap;
+}
+.exp-role-meta { flex: 1; min-width: 300px; display: flex; gap: 20px; align-items: flex-start; }
+.company-logo { width: 60px; height: 60px; object-fit: contain; background: #000; padding: 8px; border-radius: 4px; border: 1px solid #333; }
+.meta-text { flex: 1; }
+.meta-text h3 { font-size: 1.5rem; color: #fff; margin-bottom: 8px; line-height: 1.3; }
+.meta-text p { color: #aaa; font-size: 0.9rem; margin-bottom: 4px; line-height: 1.4; }
+.meta-text p:first-of-type { color: #fff; font-weight: 500; }
+.experience-bullets { flex: 1.5; min-width: 300px; padding-left: 0; }
+.experience-bullets li { color: #ccc; margin-bottom: 15px; font-size: 0.95rem; list-style-type: "• "; padding-left: 10px; }
+.exp-footer { width: 100%; display: flex; align-items: center; gap: 12px; border-top: 1px solid #222; padding-top: 25px; margin-top: 15px; }
+.skill-diamond { font-size: 1.1rem; }
+.exp-footer p { color: #fff; font-weight: bold; font-size: 0.95rem; }
+
+/* 6. PROJECTS SECTION & GRID */
+#projects { padding: 120px 10%; }
+.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 40px; align-items: stretch; }
+.project-card { 
+    background: rgba(10, 10, 10, 0.9); padding: 40px; border-left: 6px solid #a100ff; 
+    border-top: 1px solid #222; border-right: 1px solid #222; border-bottom: 1px solid #222;
+    display: flex; flex-direction: column; transition: transform 0.3s ease, border-color 0.3s;
+}
+.project-card:hover { transform: translateY(-5px); border-color: #a100ff; }
+.project-card.ongoing { border-left: 6px solid #00d4ff; }
+.project-card.ongoing span { color: #00d4ff; border-color: #00d4ff; }
+.project-header h3 { font-size: 1.3rem; margin-bottom: 10px; color: #fff; }
+.project-tags { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+.project-tags span { font-size: 0.65rem; font-weight: bold; color: #a100ff; border: 1px solid #a100ff; padding: 4px 10px; text-transform: uppercase; }
+.project-bullets { margin: 20px 0; padding-left: 20px; color: #aaa; font-size: 0.95rem; flex-grow: 1; }
+.project-bullets li { margin-bottom: 8px; }
+.github-link { color: #a100ff; text-decoration: none; font-weight: bold; font-size: 0.85rem; text-transform: uppercase; margin-top: auto; padding-top: 20px; transition: color 0.3s; }
+.project-card.ongoing .github-link { color: #00d4ff; }
+.github-link:hover { color: #fff; }
+
+/* 7. FOOTER SECTION */
+footer { padding: 100px 10%; background: #000; border-top: 1px solid #222; text-align: center; }
+.footer-content h2 { font-size: 2.5rem; color: #fff; margin-bottom: 30px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; }
+.contact-links { display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; font-size: 1.1rem; }
+.contact-links a { color: #a100ff; text-decoration: none; font-weight: bold; transition: color 0.3s ease; }
+.contact-links a:hover { color: #fff; }
+.footer-divider { color: #444; font-weight: 300; }
+
+/* 8. RESPONSIVE */
+@media (max-width: 900px) {
+    .hero h1 { font-size: 2.8rem; }
+    .profile-container { flex-direction: column; align-items: center; text-align: center; }
+    .profile-photo { width: 220px; height: 220px; }
+    .intro-text { border-left: none; padding-left: 0; }
+    .welcome-text { align-self: center; }
+    .experience-card { flex-direction: column; gap: 30px; }
+    .footer-divider { display: none; }
+    .contact-links { flex-direction: column; gap: 15px; }
+}
