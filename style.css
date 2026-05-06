@@ -6,7 +6,7 @@ body { background-color: #000; color: #fff; font-family: 'Segoe UI', sans-serif;
 /* 2. UNIFIED PARALLAX BACKGROUNDS */
 .hero, #about, #experience, #projects {
     background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.95)), 
-                url('./hero-bg.jpg'); 
+                url('hero-bg.jpg'); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
