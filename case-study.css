@@ -1,0 +1,138 @@
+/* CASE STUDY PAGE — extends style.css tokens (purple #a100ff, teal #00d4ff) */
+
+/* HEADING */
+.case-heading {
+    padding: 100px 10% 40px;
+    background: #000;
+    border-bottom: 1px solid #222;
+}
+.back-link {
+    display: inline-block;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    margin-bottom: 25px;
+}
+.back-link:hover { color: #a100ff; }
+.case-heading h2 {
+    margin-bottom: 0;
+}
+
+/* STEP TABS */
+.case-steps {
+    padding: 60px 10% 100px;
+    background: #000;
+}
+.step-tabs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+.step-tab {
+    background: rgba(10, 10, 10, 0.9);
+    border: 1px solid #333;
+    border-left: 6px solid #333;
+    color: #ccc;
+    padding: 22px 34px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: 0.3s;
+    min-width: 170px;
+}
+.step-tab:hover {
+    border-color: #a100ff;
+    border-left-color: #a100ff;
+}
+.step-tab.active {
+    border-left-color: #a100ff;
+    border-color: #a100ff;
+    background: rgba(161, 0, 255, 0.08);
+}
+.step-num {
+    font-size: 0.75rem;
+    font-weight: 900;
+    color: #a100ff;
+    letter-spacing: 2px;
+}
+.step-tab.active .step-title { color: #fff; }
+.step-title {
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: #ccc;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.step-arrow {
+    color: #444;
+    font-size: 1.3rem;
+}
+
+/* STEP PANELS */
+.step-panels {
+    max-width: 950px;
+    margin: 0 auto;
+}
+.step-panel {
+    display: none;
+}
+.step-panel.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.placeholder {
+    color: #888;
+    font-style: italic;
+    border-left: 3px dashed #a100ff;
+    padding: 14px 22px;
+    background: rgba(161, 0, 255, 0.05);
+    font-size: 1rem;
+}
+
+/* PUBLISH LINK */
+.case-publish {
+    padding: 0 10% 120px;
+    background: #000;
+    text-align: center;
+}
+.publish-btn {
+    display: inline-block;
+    color: #fff;
+    background: #a100ff;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.95rem;
+    padding: 18px 42px;
+    border: 1px solid #a100ff;
+    transition: 0.3s;
+}
+.publish-btn:hover {
+    background: transparent;
+    color: #a100ff;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .case-heading { padding: 80px 6% 30px; }
+    .case-steps { padding: 40px 6% 70px; }
+    .step-tabs { gap: 12px; }
+    .step-tab { min-width: 140px; padding: 16px 20px; }
+    .step-arrow { display: none; }
+}
