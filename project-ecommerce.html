@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce Sales & Profitability Dashboard | M.R. Data & Insights</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="case-study.css">
+</head>
+<body>
+
+    <main>
+        <!-- CASE STUDY HEADING -->
+        <section class="case-heading">
+            <a href="index.html#projects" class="back-link">&larr; Back to Portfolio</a>
+            <h2>Ecommerce Sales & Profitability Dashboard</h2>
+        </section>
+
+        <!-- STEP CARDS -->
+        <section class="case-steps">
+            <div class="step-tabs">
+                <button class="step-tab active" data-step="cleaning">
+                    <span class="step-num">01</span>
+                    <span class="step-title">Data Cleaning</span>
+                </button>
+                <span class="step-arrow">&rarr;</span>
+                <button class="step-tab" data-step="eda">
+                    <span class="step-num">02</span>
+                    <span class="step-title">EDA</span>
+                </button>
+                <span class="step-arrow">&rarr;</span>
+                <button class="step-tab" data-step="dashboard">
+                    <span class="step-num">03</span>
+                    <span class="step-title">Dashboard</span>
+                </button>
+            </div>
+
+            <!-- STEP PANELS -->
+            <div class="step-panels">
+                <div class="step-panel active" id="panel-cleaning">
+                    <p class="placeholder">[Content coming soon — data cleaning steps go here.]</p>
+                </div>
+
+                <div class="step-panel" id="panel-eda">
+                    <p class="placeholder">[Content coming soon — EDA / exploratory analysis goes here.]</p>
+                </div>
+
+                <div class="step-panel" id="panel-dashboard">
+                    <p class="placeholder">[Content coming soon — dashboard build details go here.]</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PUBLISH LINK -->
+        <section class="case-publish">
+            <a href="#" target="_blank" class="publish-btn">View Published Dashboard &rarr;</a>
+        </section>
+    </main>
+
+    <!-- FOOTER SECTION -->
+    <footer id="contact">
+        <div class="footer-content">
+            <h2>Let's collaborate</h2>
+            <div class="contact-links">
+                <a href="mailto:maheshwarir2305@gmail.com">maheshwarir2305@gmail.com</a>
+                <span class="footer-divider">|</span>
+                <a href="tel:+917760588181">+91 7760588181</a>
+                <span class="footer-divider">|</span>
+                <a href="https://www.linkedin.com/in/maheshwari-r-24b4bb398/" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const tabs = document.querySelectorAll('.step-tab');
+        const panels = document.querySelectorAll('.step-panel');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                panels.forEach(p => p.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById('panel-' + tab.dataset.step).classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
