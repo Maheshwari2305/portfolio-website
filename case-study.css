@@ -1,10 +1,19 @@
 /* CASE STUDY PAGE — extends style.css tokens (purple #a100ff, teal #00d4ff) */
 
+/* SHARED PARALLAX BACKGROUND (matches hero/about/experience/projects on index.html) */
+.case-heading, .case-steps, .case-publish {
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.95)),
+                url('hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
 /* HEADING */
 .case-heading {
     padding: 100px 10% 40px;
-    background: #000;
     border-bottom: 1px solid #222;
+    text-align: center;
 }
 .back-link {
     display: inline-block;
@@ -20,12 +29,12 @@
 .back-link:hover { color: #a100ff; }
 .case-heading h2 {
     margin-bottom: 0;
+    text-align: center;
 }
 
 /* STEP TABS */
 .case-steps {
     padding: 60px 10% 100px;
-    background: #000;
 }
 .step-tabs {
     display: flex;
@@ -107,7 +116,6 @@
 /* PUBLISH LINK */
 .case-publish {
     padding: 0 10% 120px;
-    background: #000;
     text-align: center;
 }
 .publish-btn {
