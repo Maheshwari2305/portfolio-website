@@ -251,6 +251,21 @@
             font-size: 0.9em;
         }
 
+        /* DASHBOARD SCREENSHOT DISPLAY STYLES */
+        .screenshot-container {
+            margin-top: 20px;
+            border: 1px solid #333;
+            background: rgba(10, 10, 10, 0.5);
+            padding: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+        }
+        .screenshot-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid #222;
+        }
+
         .case-publish {
             padding: 40px 10% 100px;
             text-align: center;
@@ -294,8 +309,8 @@
 
     <!-- TOP TITLE HEADER -->
     <div class="case-heading">
-        <!-- CRITICAL FIX: NAVIGATES BACK TO PORTFOLIO PAGE -->
-        <a href="javascript:history.back()" class="back-link">← Back To Portfolio</a>
+        <!-- 1. BACK TO PORTFOLIO ROUTING FIXED -->
+        <a href="index.html" class="back-link">← Back To Portfolio</a>
         <h2>Ecommerce Sales & Profitability Dashboard</h2>
         
         <div class="glance-bar">
@@ -350,7 +365,7 @@
         </div>
     </div>
 
-    <!-- MAIN DISPLAY SWITCHBOARD METRICS CONTAINER -->
+    <!-- MAIN SECTIONS STAGE ANCHOR CONTENT RUN -->
     <main class="case-steps">
 
         <!-- Phase 01: Discovery & Planning -->
@@ -554,8 +569,14 @@
                 <h3>Interface Breakdowns</h3>
                 <ul class="recruiter-list">
                     <li><strong>Sales Performance Page:</strong> Focused on global revenue trends, localized geographic mapping, and order quantity distributions.</li>
-                    <li><strong>Product Profitability Page:</strong> Created a dedicated area to drill down into product categories to isolate high-margin lines from loss-leaders.</li>
-                    <li><strong>Executive Summary Layer:</strong> Built a high-level manager space that translates complex visual charts directly into clear operational action items.</li>
+                    <div class="screenshot-container">
+                        <img src="sales-dashboard.png" alt="Sales Performance Dashboard Layer">
+                    </div>
+                    <li style="margin-top: 25px;"><strong>Product Profitability Page:</strong> Created a dedicated area to drill down into product categories to isolate high-margin lines from loss-leaders.</li>
+                    <div class="screenshot-container">
+                        <img src="product-dashboard.png" alt="Product Analysis Dashboard Layer">
+                    </div>
+                    <li style="margin-top: 25px;"><strong>Executive Summary Layer:</strong> Built a high-level manager space that translates complex visual charts directly into clear operational action items.</li>
                 </ul>
             </div>
         </div>
@@ -580,6 +601,9 @@
                     <li><strong>Uncovered the Sales vs. Profit Trap:</strong> Proved that high sales do not always mean high profits; highlighted that Cisco TelePresence generates strong sales but only a 0.82% profit margin, while HON Chairs operate at a -4.94% profit margin.</li>
                     <li><strong>Audited Discounting Practices:</strong> Confirmed that Furniture receives one of the highest average discounts (16.09%) while generating the lowest profitability, showing that current discounting practices reduce margins without delivering a proportional return.</li>
                 </ul>
+                <div class="screenshot-container" style="margin-top: 25px;">
+                    <img src="recommendations-dashboard.png" alt="Executive Summary & Key Findings Visualization Layer">
+                </div>
             </div>
             <div id="p6-recommendations" class="sub-content-panel">
                 <h3>Strategic Recommendations</h3>
@@ -609,9 +633,9 @@
             </div>
         </div>
 
-        <!-- CALL TO ACTION AREA -->
+        <!-- 2. CALL TO ACTION ROUTING LINK FIXED -->
         <div class="case-publish">
-            <a href="#" target="_blank" class="publish-btn">View Published Dashboard →</a>
+            <a href="https://app.powerbi.com/groups/me/reports/ae63091a-a175-4b00-9c14-2f40a3370685/3b9bc3d0633f17fd80ca?experience=power-bi" target="_blank" class="publish-btn">View Published Dashboard →</a>
         </div>
 
     </main>
