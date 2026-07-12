@@ -8,7 +8,9 @@
         /* ==========================================================================
            GLOBAL DARK STYLES & BACKGROUND SETUP
            ========================================================================== */
-        html, 
+        html {
+            scroll-behavior: smooth; /* Enables elegant fluid sliding behavior */
+        }
         body, 
         main, 
         .case-steps,
@@ -152,7 +154,7 @@
         }
 
         /* ==========================================================================
-           EXACT FIX: HORIZONTAL SUB-NAV PILLS LAYOUT FOR SUB-HEADINGS
+           SUB-NAV PILLS LAYOUT (ANCHOR BUTTON CARDS)
            ========================================================================== */
         .sub-navigation-bar {
             display: flex;
@@ -172,20 +174,16 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             cursor: pointer;
+            text-decoration: none;
             transition: all 0.3s ease;
+            display: inline-block;
         }
         .sub-pill:hover {
             border-color: #a100ff;
             color: #fff;
         }
-        .sub-pill.active {
-            border-color: #a100ff;
-            color: #fff;
-            background: rgba(161, 0, 255, 0.05);
-            box-shadow: 0 0 10px rgba(161, 0, 255, 0.1);
-        }
 
-        /* CONTENT LIST CONTENT AREAS */
+        /* CONTENT ROW BLOCKS LAYOUT */
         .case-steps {
             padding: 0 10% 60px;
         }
@@ -196,25 +194,34 @@
         }
         .step-panel.active {
             display: block;
+            animation: fadeIn 0.4s ease;
         }
 
+        /* ANCHOR CONTENT TARGETS STYLING */
         .sub-content-panel {
-            display: none;
-            animation: fadeIn 0.3s ease;
+            margin-bottom: 50px;
+            scroll-margin-top: 30px; /* Gives nice breathing room layout when jumped to */
         }
-        .sub-content-panel.active {
-            display: block;
+        .sub-content-panel h3 {
+            color: #fff;
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            border-left: 3px solid #a100ff;
+            padding-left: 12px;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(6px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* RECRUITER LIST STYLING */
         ul.recruiter-list {
             list-style: none;
-            padding: 10px 0;
+            padding: 5px 0 0 0;
         }
         ul.recruiter-list li {
             position: relative;
@@ -347,26 +354,29 @@
 
         <div id="phase1" class="step-panel active">
             <div class="sub-navigation-bar">
-                <div class="sub-pill active" onclick="switchSubContent('phase1', 'p1-sub1')">Project Overview</div>
-                <div class="sub-pill" onclick="switchSubContent('phase1', 'p1-sub2')">Business Understanding</div>
-                <div class="sub-pill" onclick="switchSubContent('phase1', 'p1-sub3')">Business Requirements</div>
+                <a href="#p1-overview" class="sub-pill">Project Overview</a>
+                <a href="#p1-understanding" class="sub-pill">Business Understanding</a>
+                <a href="#p1-requirements" class="sub-pill">Business Requirements</a>
             </div>
             
-            <div id="p1-sub1" class="sub-content-panel active">
+            <div id="p1-overview" class="sub-content-panel">
+                <h3>Project Overview</h3>
                 <ul class="recruiter-list">
                     <li><strong>Interactive Dashboard Solution:</strong> Designs and develops a comprehensive Retail Sales Analysis Dashboard using Microsoft Power BI to replace traditional static spreadsheet reports.</li>
                     <li><strong>Transforms Raw Data:</strong> Turns unutilized daily transactional records (sales, customer purchases, and product inventory) into clear, meaningful visual insights.</li>
                     <li><strong>Improves Reporting Efficiency:</strong> Delivers automated calculations, real-time chart interaction, KPI tracking, and executive-level summaries for fast decision-making.</li>
                 </ul>
             </div>
-            <div id="p1-sub2" class="sub-content-panel">
+            <div id="p1-understanding" class="sub-content-panel">
+                <h3>Business Understanding</h3>
                 <ul class="recruiter-list">
                     <li><strong>Addresses Retail Challenges:</strong> Identifies the business need to track high-performing items, regional profit margins, and seasonal sales trends.</li>
                     <li><strong>Evaluates Store Obstacles:</strong> Focuses on answering how different customer segments purchase products and how discount strategies impact overall net profit.</li>
                     <li><strong>Applies BI Lifecycle:</strong> Handles the complete Business Intelligence lifecycle including data preparation, exploratory data analysis, data modeling, and business reporting.</li>
                 </ul>
             </div>
-            <div id="p1-sub3" class="sub-content-panel">
+            <div id="p1-requirements" class="sub-content-panel">
+                <h3>Business Requirements & Objectives</h3>
                 <ul class="recruiter-list">
                     <li><strong>Monitors Financial Performance:</strong> Tracks core business metrics including historical revenue patterns, net profit, quantities sold, and discount behaviors across multiple years.</li>
                     <li><strong>Isolates Performance Drivers:</strong> Sets up tools to easily identify high-performing and underperforming product categories across different geographic regions.</li>
@@ -378,11 +388,12 @@
 
         <div id="phase2" class="step-panel">
             <div class="sub-navigation-bar">
-                <div class="sub-pill active" onclick="switchSubContent('phase2', 'p2-sub1')">Data Sourcing Strategy</div>
-                <div class="sub-pill" onclick="switchSubContent('phase2', 'p2-sub2')">Dataset Dimension Fields</div>
+                <a href="#p2-strategy" class="sub-pill">Data Sourcing Strategy</a>
+                <a href="#p2-fields" class="sub-pill">Dataset Dimension Fields</a>
             </div>
             
-            <div id="p2-sub1" class="sub-content-panel active">
+            <div id="p2-strategy" class="sub-content-panel">
+                <h3>Data Sourcing Strategy</h3>
                 <ul class="recruiter-list">
                     <li><strong>Base Retail Dataset:</strong> Sources an enterprise-grade retail transactional dataset from Kaggle containing 9,000+ clean records.</li>
                     <li><strong>Synthetic Anomaly Injection:</strong> Uses Generative AI to intentionally inject realistic human entry errors, structural messiness, and logical bugs into the dataset.</li>
@@ -390,7 +401,8 @@
                     <li><strong>Professional Experience Simulation:</strong> Design-engineers specific database challenges to systematically test data quality frameworks in both Excel and Power Query.</li>
                 </ul>
             </div>
-            <div id="p2-sub2" class="sub-content-panel">
+            <div id="p2-fields" class="sub-content-panel">
+                <h3>Dataset Dimension Fields</h3>
                 <ul class="recruiter-list">
                     <li><strong>Monitors Transaction Identifiers:</strong> Evaluates tracking columns including unique Order IDs, Customer Names, and localized City or Region parameters.</li>
                     <li><strong>Tracks Financial Variables:</strong> Structures data properties capturing financial variables such as itemized Product Categories, Sales Revenue, Quantities, and Net Profit margins.</li>
@@ -401,14 +413,15 @@
 
         <div id="phase3" class="step-panel">
             <div class="sub-navigation-bar">
-                <div class="sub-pill active" onclick="switchSubContent('phase3', 'p3-sub1')">CLEAN Framework</div>
-                <div class="sub-pill" onclick="switchSubContent('phase3', 'p3-sub2')">Cleaning Strategy</div>
-                <div class="sub-pill" onclick="switchSubContent('phase3', 'p3-sub3')">Excel Cleaning</div>
-                <div class="sub-pill" onclick="switchSubContent('phase3', 'p3-sub4')">Power Query</div>
-                <div class="sub-pill" onclick="switchSubContent('phase3', 'p3-sub5')">Exceptions & Anomalies</div>
+                <a href="#p3-framework" class="sub-pill">CLEAN Framework</a>
+                <a href="#p3-strategy" class="sub-pill">Cleaning Strategy</a>
+                <a href="#p3-excel" class="sub-pill">Excel Cleaning</a>
+                <a href="#p3-query" class="sub-pill">Power Query</a>
+                <a href="#p3-exceptions" class="sub-pill">Exceptions & Anomalies</a>
             </div>
             
-            <div id="p3-sub1" class="sub-content-panel active">
+            <div id="p3-framework" class="sub-content-panel">
+                <h3>CLEAN Framework Implementation</h3>
                 <ul class="recruiter-list">
                     <li><strong>Conceptualize the Data (C):</strong> Checked the key metrics, columns, and dimensions to understand what each row represented before changing any data.</li>
                     <li><strong>Locate Solvable Issues (L):</strong> Eyeballed the data and filtered distinct values to build an issue log tracking inconsistent dates, bad categories, and duplicates.</li>
@@ -417,13 +430,15 @@
                     <li><strong>Note and Document (N):</strong> Created a detailed table log tracking the column name, issue description, row counts, and your exact technical resolution.</li>
                 </ul>
             </div>
-            <div id="p3-sub2" class="sub-content-panel">
+            <div id="p3-strategy" class="sub-content-panel">
+                <h3>Data Cleaning Strategy</h3>
                 <ul class="recruiter-list">
                     <li><strong>Adopted Agile Principles:</strong> Focused on delivering data that is "good enough to analyze, share, and iterate on" instead of waiting for a perfect dataset.</li>
                     <li><strong>Executed Three-Step Processing:</strong> Iterated through the data by first removing obvious dirty columns, standardizing text layouts, and finally refining values after initial analysis.</li>
                 </ul>
             </div>
-            <div id="p3-sub3" class="sub-content-panel">
+            <div id="p3-excel" class="sub-content-panel">
+                <h3>Excel Data Cleaning</h3>
                 <ul class="recruiter-list">
                     <li><strong>Fixed Inconsistent Categorizations:</strong> Used <code>TRIM</code>, <code>PROPER</code>, and <code>XLOOKUP</code> functions to populate 163 missing product category values based on valid product details.</li>
                     <li><strong>Standardized Text Data:</strong> Cleared out blank, whitespace-only, and hyphen (<code>"-"</code>) entries inside the Region and City columns, standardizing invalid values to <code>"Missing"</code>.</li>
@@ -431,14 +446,16 @@
                     <li><strong>Manually Populated Records:</strong> Investigated missing postal codes for Burlington, Vermont, and manually populated them with the correct verified ZIP code (<code>05401</code>).</li>
                 </ul>
             </div>
-            <div id="p3-sub4" class="sub-content-panel">
+            <div id="p3-query" class="sub-content-panel">
+                <h3>Power Query Staging Transformations</h3>
                 <ul class="recruiter-list">
                     <li><strong>Removed Structural Waste:</strong> Dropped a completely Unnamed Column affecting 66 rows that held zero business value.</li>
                     <li><strong>Standardized System Timestamps:</strong> Uniformed all records in both the Order Date and Shipment Date columns into a clean, matching <code>DD-MMM-YY</code> date format structure.</li>
                     <li><strong>Parsed Customer Attributes:</strong> Split full names into separate component columns while preserving the original column to keep reporting features flexible.</li>
                 </ul>
             </div>
-            <div id="p3-sub5" class="sub-content-panel">
+            <div id="p3-exceptions" class="sub-content-panel">
+                <h3>Handling Logical Exceptions & Anomalies</h3>
                 <ul class="recruiter-list">
                     <li><strong>Retained Systemic Nulls:</strong> Kept 327 missing order dates as null values and flagged them as quality bugs because the source data could not be reliably inferred.</li>
                     <li><strong>Tracked Business Logic Violations:</strong> Identified 55 rows where the shipment date occurred before the order date; created a helper column to calculate shipment days and flagged the negative anomalies for review.</li>
@@ -450,14 +467,15 @@
 
         <div id="phase4" class="step-panel">
             <div class="sub-navigation-bar">
-                <div class="sub-pill active" onclick="switchSubContent('phase4', 'p4-sub1')">SCAN Framework</div>
-                <div class="sub-pill" onclick="switchSubContent('phase4', 'p4-sub2')">SQL & MySQL Ingestion</div>
-                <div class="sub-pill" onclick="switchSubContent('phase4', 'p4-sub3')">Normalization</div>
-                <div class="sub-pill" onclick="switchSubContent('phase4', 'p4-sub4')">Star Schema Architecture</div>
-                <div class="sub-pill" onclick="switchSubContent('phase4', 'p4-sub5')">Initial EDA</div>
+                <a href="#p4-scan" class="sub-pill">SCAN Framework</a>
+                <a href="#p4-ingestion" class="sub-pill">SQL & MySQL Ingestion</a>
+                <a href="#p4-normalization" class="sub-pill">Normalization</a>
+                <a href="#p4-star" class="sub-pill">Star Schema Architecture</a>
+                <a href="#p4-eda" class="sub-pill">Initial EDA</a>
             </div>
             
-            <div id="p4-sub1" class="sub-content-panel active">
+            <div id="p4-scan" class="sub-content-panel">
+                <h3>SCAN Framework Execution</h3>
                 <ul class="recruiter-list">
                     <li><strong>Mapped Stakeholder Goals (S):</strong> Identified exactly which KPIs and dimensions mattered most to the business, aligning the dashboard view with core themes like revenue performance, regional margins, and discount impacts.</li>
                     <li><strong>Scoped Core Data (C):</strong> Organized the raw dataset schema into clean, logical groups covering customer data, product categories, order variables, and geography fields.</li>
@@ -465,7 +483,8 @@
                     <li><strong>Targeted Notable Segments (N):</strong> Sliced the transactional records by specific timeframes and categories to surface early business insights during the modeling phase.</li>
                 </ul>
             </div>
-            <div id="p4-sub2" class="sub-content-panel">
+            <div id="p4-ingestion" class="sub-content-panel">
+                <h3>SQL Analysis & MySQL Ingestion</h3>
                 <ul class="recruiter-list">
                     <li><strong>Prepared Bulk Staging:</strong> Saved the cleaned retail data as a <code>CSV UTF-8</code> file from Excel and moved it to the secure MySQL server upload directory.</li>
                     <li><strong>Authenticated Server Pipeline:</strong> Opened the Windows Command Prompt, navigated directly to the MySQL bin directory, and connected to the server as root to access the command-line client.</li>
@@ -473,14 +492,16 @@
                     <li><strong>Validated Structural Integrity:</strong> Verified the row counts using <code>SELECT COUNT(*)</code> to ensure all records loaded successfully, and ran <code>LIMIT 10</code> queries to confirm precise data integrity and <code>DATE</code> datatype conversions.</li>
                 </ul>
             </div>
-            <div id="p4-sub3" class="sub-content-panel">
+            <div id="p4-normalization" class="sub-content-panel">
+                <h3>Relational Normalization Strategy</h3>
                 <ul class="recruiter-list">
                     <li><strong>Identifies Redundancy Issues:</strong> Spotted structural data duplication where customer descriptions and product details repeated inefficiently on every individual transaction row.</li>
                     <li><strong>Normalized Flat Table Architecture:</strong> Separated the single, messy raw table by breaking down the fields and creating distinct, specialized entity tables.</li>
                     <li><strong>Improved Database Maintainability:</strong> Created an organized system where each unique customer and product record was stored only once, drastically reducing redundancy and improving scalability.</li>
                 </ul>
             </div>
-            <div id="p4-sub4" class="sub-content-panel">
+            <div id="p4-star" class="sub-content-panel">
+                <h3>Star Schema Architecture</h3>
                 <ul class="recruiter-list">
                     <li><strong>Defined Dimension Layer:</strong> Created <code>Customer_Dim</code> (storing names and segments) and <code>Product_Dim</code> (storing sub-categories) using <code>Customer_ID</code> and <code>Product_ID</code> as primary keys.</li>
                     <li><strong>Established Fact Layer:</strong> Structured the central <code>Order_Fact</code> table using <code>Fact_ID</code> as the primary key to hold numeric transactional metrics like sales, quantities, discounts, and profits.</li>
@@ -488,7 +509,8 @@
                     <li><strong>Optimized Query Performance:</strong> Achieved faster query execution times, cleaner aggregations, and an industry-standard dashboard schema perfect for reporting tools.</li>
                 </ul>
             </div>
-            <div id="p4-sub5" class="sub-content-panel">
+            <div id="p4-eda" class="sub-content-panel">
+                <h3>Exploratory Data Analysis (EDA)</h3>
                 <ul class="recruiter-list">
                     <li><strong>Analyzed Financial Health Metrics:</strong> Calculated baseline aggregations across the entire dataset to establish global benchmarks for Total Sales, Net Profit, and overall Profit Margin percentages.</li>
                     <li><strong>Investigated the Discount Impact:</strong> Ran distribution checks on discount percentages to isolate how promotional pricing scales against net profitability, identifying severe margin drops past specific discount thresholds.</li>
@@ -502,13 +524,14 @@
 
         <div id="phase5" class="step-panel">
             <div class="sub-navigation-bar">
-                <div class="sub-pill active" onclick="switchSubContent('phase5', 'p5-sub1')">DASH Framework</div>
-                <div class="sub-pill" onclick="switchSubContent('phase5', 'p5-sub2')">Dashboard Planning</div>
-                <div class="sub-pill" onclick="switchSubContent('phase5', 'p5-sub3')">Visual Selection</div>
-                <div class="sub-pill" onclick="switchSubContent('phase5', 'p5-sub4')">Interface Breakdown</div>
+                <a href="#p5-dash" class="sub-pill">DASH Framework</a>
+                <a href="#p5-planning" class="sub-pill">Dashboard Planning</a>
+                <a href="#p5-selection" class="sub-pill">Visual Selection</a>
+                <a href="#p5-breakdown" class="sub-pill">Interface Breakdown</a>
             </div>
             
-            <div id="p5-sub1" class="sub-content-panel active">
+            <div id="p5-dash" class="sub-content-panel">
+                <h3>DASH Framework Execution</h3>
                 <ul class="recruiter-list">
                     <li><strong>Managed Duplicates & Visual Noise (D):</strong> Cleared out redundant charts, excessive gridlines, and overlapping labels to keep the reporting space clean and focused.</li>
                     <li><strong>Isolated Performance Anomalies (A):</strong> Built clear visual alerts and conditional formatting rules to automatically highlight critical profit drops and high-discount exceptions.</li>
@@ -516,14 +539,16 @@
                     <li><strong>Handled Blank & Null Views (H):</strong> Designed defensive data layouts to ensure that empty fields or unpopulated region filters do not break chart elements during live cross-filtering.</li>
                 </ul>
             </div>
-            <div id="p5-sub2" class="sub-content-panel">
+            <div id="p5-planning" class="sub-content-panel">
+                <h3>Dashboard Planning & Visual Strategy</h3>
                 <ul class="recruiter-list">
                     <li><strong>Structured a Multi-Page Interface:</strong> Designed a logical 3-page user path consisting of a Sales Dashboard, Product Dashboard, and an Executive Summary.</li>
                     <li><strong>Integrated Interactive Controls:</strong> Implemented dynamic slicers for regions, order years, and product categories to allow users to customize their view on the fly.</li>
                     <li><strong>Established Clear Navigation:</strong> Configured user-friendly page-navigation buttons and interactive bookmarks to let stakeholders move smoothly between deep-dives.</li>
                 </ul>
             </div>
-            <div id="p5-sub3" class="sub-content-panel">
+            <div id="p5-selection" class="sub-content-panel">
+                <h3>Visual Selection Matrix</h3>
                 <ul class="recruiter-list">
                     <li><strong>Applied KPI Status Cards:</strong> Placed bold summary boxes at the very top of the screens to display immediate numbers for Total Sales, Profit, and Orders.</li>
                     <li><strong>Selected Line Charts:</strong> Utilized continuous line visualizations to track monthly and quarterly sales growth trends over the multi-year timeline.</li>
@@ -531,7 +556,8 @@
                     <li><strong>Leveraged Horizontal Bar Charts:</strong> Chosen to rank localized sub-category performance and regional revenues cleanly without text wrapping issues.</li>
                 </ul>
             </div>
-            <div id="p5-sub4" class="sub-content-panel">
+            <div id="p5-breakdown" class="sub-content-panel">
+                <h3>Interface Breakdowns</h3>
                 <ul class="recruiter-list">
                     <li><strong>Sales Performance Page:</strong> Focused on global revenue trends, localized geographic mapping, and order quantity distributions.</li>
                     <li><strong>Product Profitability Page:</strong> Created a dedicated area to drill down into product categories to isolate high-margin lines from loss-leaders.</li>
@@ -542,13 +568,14 @@
 
         <div id="phase6" class="step-panel">
             <div class="sub-navigation-bar">
-                <div class="sub-pill active" onclick="switchSubContent('phase6', 'p6-sub1')">Business Insights</div>
-                <div class="sub-pill" onclick="switchSubContent('phase6', 'p6-sub2')">Strategic Recommendations</div>
-                <div class="sub-pill" onclick="switchSubContent('phase6', 'p6-sub3')">Challenges Faced</div>
-                <div class="sub-pill" onclick="switchSubContent('phase6', 'p6-sub4')">Future Improvements</div>
+                <a href="#p6-insights" class="sub-pill">Business Insights</a>
+                <a href="#p6-recommendations" class="sub-pill">Strategic Recommendations</a>
+                <a href="#p6-challenges" class="sub-pill">Challenges Faced</a>
+                <a href="#p6-future" class="sub-pill">Future Improvements</a>
             </div>
             
-            <div id="p6-sub1" class="sub-content-panel active">
+            <div id="p6-insights" class="sub-content-panel">
+                <h3>Business Insights</h3>
                 <ul class="recruiter-list">
                     <li><strong>Analyzed Seasonal Sales Trends:</strong> Discovered that sales growth peaks sharply in March, while October and November show consistent declines, revealing a clear seasonal demand pattern.</li>
                     <li><strong>Evaluated Customer Segments:</strong> Identified that the Consumer segment contributes 51.68% of total sales, significantly outperforming the Corporate (29.43%) and Home Office (18.89%) groups.</li>
@@ -559,7 +586,8 @@
                     <li><strong>Audited Discounting Practices:</strong> Confirmed that Furniture receives one of the highest average discounts (16.09%) while generating the lowest profitability, showing that current discounting practices reduce margins without delivering a proportional return.</li>
                 </ul>
             </div>
-            <div id="p6-sub2" class="sub-content-panel">
+            <div id="p6-recommendations" class="sub-content-panel">
+                <h3>Strategic Recommendations</h3>
                 <ul class="recruiter-list">
                     <li><strong>Implement Seasonal Planning:</strong> Align promotions, inventory planning, and staffing with the March demand peak, while introducing targeted campaigns during October–November to reduce seasonal slowdowns.</li>
                     <li><strong>Revamp Pricing Strategy:</strong> Re-evaluate Furniture pricing and discount policies by testing lower discount levels or premium bundle offers to improve profitability.</li>
@@ -570,14 +598,16 @@
                     <li><strong>Capture Growth Opportunities:</strong> Continue investing in high-performing categories such as Technology and Office Supplies, while maintaining inventory and promotional support for top-performing products like the Canon ImageClass series.</li>
                 </ul>
             </div>
-            <div id="p6-sub3" class="sub-content-panel">
+            <div id="p6-challenges" class="sub-content-panel">
+                <h3>Challenges & Lessons Learned</h3>
                 <ul class="recruiter-list">
                     <li><strong>Faced Complex Data Anomaly Auditing:</strong> Managed the tracking of synthetic human entry errors and invalid business logic rows across a large dataset without breaking report structures.</li>
                     <li><strong>Balanced Volume vs. Value Visuals:</strong> Solved the challenge of representing high-volume, negative-margin items on the same chart layout without hiding baseline patterns.</li>
                     <li><strong>Learned Scalable Schema Design:</strong> Confirmed that investing time up front in proper SQL database normalization makes dashboard construction significantly cleaner.</li>
                 </ul>
             </div>
-            <div id="p6-sub4" class="sub-content-panel">
+            <div id="p6-future" class="sub-content-panel">
+                <h3>Future Improvements</h3>
                 <ul class="recruiter-list">
                     <li><strong>Integrate Machine Learning Forecasting:</strong> Plan to incorporate predictive modeling to forecast future monthly demand and optimize inventory levels before seasonal peaks.</li>
                     <li><strong>Add Granular Profit Drill-Throughs:</strong> Aim to build automated drill-through summary sub-pages to trace individual transaction returns back to original promotional codes.</li>
@@ -596,8 +626,8 @@
     </footer>
 
     <script>
-        // Toggles the primary Phase level cards
         function switchMainPhase(phaseId) {
+            // Remove active tags from all main panel elements
             document.querySelectorAll('.step-panel').forEach(panel => {
                 panel.classList.remove('active');
             });
@@ -605,29 +635,12 @@
                 tab.classList.remove('active');
             });
 
+            // Make the targeted stage visible
             document.getElementById(phaseId).classList.add('active');
             document.getElementById('tab-' + phaseId).classList.add('active');
-
-            // Automatically click the first sub-pill inside the newly opened phase panel
-            const firstPill = document.querySelector(`#${phaseId} .sub-pill`);
-            if (firstPill) {
-                firstPill.click();
-            }
-        }
-
-        // Toggles the horizontal nested button rows inside a single phase view
-        function switchSubContent(phaseId, contentId) {
-            const currentPhase = document.getElementById(phaseId);
             
-            currentPhase.querySelectorAll('.sub-content-panel').forEach(panel => {
-                panel.classList.remove('active');
-            });
-            currentPhase.querySelectorAll('.sub-pill').forEach(pill => {
-                pill.classList.remove('active');
-            });
-
-            document.getElementById(contentId).classList.add('active');
-            event.currentTarget.classList.add('active');
+            // Instantly snap the main layout window back to top when switching big phases
+            window.scrollTo({ top: 0 });
         }
     </script>
 
