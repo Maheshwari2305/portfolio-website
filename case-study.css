@@ -1,14 +1,5 @@
 /* CASE STUDY PAGE — extends style.css tokens (purple #a100ff, teal #00d4ff) */
 
-/* SHARED PARALLAX BACKGROUND */
-.case-heading, .case-steps, .case-publish {
-    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.95)),
-                url('hero-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
-
 /* HEADING */
 .case-heading {
     padding: 100px 10% 40px;
@@ -32,7 +23,7 @@
     text-align: center;
 }
 
-/* AT A GLANCE STRIP — TECHNICAL SKILL TABS SYSTEM */
+/* AT A GLANCE STRIP */
 .glance-bar {
     max-width: 950px;
     margin: 35px auto 0;
@@ -43,7 +34,7 @@
 }
 .glance-tags {
     display: flex;
-    gap: 0; /* Cleared for strict control over borders */
+    gap: 0;
     flex-wrap: wrap;
     justify-content: center;
     border: 1px solid #a100ff;
@@ -64,7 +55,7 @@
     border-right: none;
 }
 
-/* HORIZONTAL STICKY PHASE NAV — 6 STEPS IN ONE ROW */
+/* STICKY PHASE NAV — TRANSLUCENT CLEAN BACKGROUND */
 .case-steps {
     padding: 30px 10% 100px;
 }
@@ -72,38 +63,43 @@
     position: sticky;
     top: 0;
     z-index: 20;
-    background: rgba(0, 0, 0, 0.97);
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(8px);
     border-bottom: 1px solid #222;
     margin: 0 -10% 50px;
-    padding: 16px 4%;
+    padding: 24px 4%;
     width: 100vw;
     box-sizing: border-box;
-    overflow-x: auto; /* Fallback fallback mechanism for small viewports */
+    overflow-x: auto;
 }
 .step-tabs {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 12px;
-    max-width: 1200px;
+    max-width: 1350px;
     margin: 0 auto;
     width: 100%;
 }
+
+/* LARGER PHASE CARDS STYLING */
 .step-tab {
-    background: rgba(10, 10, 10, 0.9);
+    background: rgba(15, 15, 15, 0.7);
     border: 1px solid #333;
-    border-top: 4px solid #333; /* Shifted selector line top matching original dashboard aesthetics */
+    border-top: 4px solid #333;
     color: #ccc;
-    padding: 14px 10px;
+    padding: 18px 24px; /* Increased internal card size padding */
+    min-width: 165px;    /* Increased overall card footprint base width */
+    min-height: 80px;    /* Comfortably holds longer words across screen resets */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    gap: 8px;
     cursor: pointer;
     font-family: inherit;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     text-align: center;
+    box-sizing: border-box;
 }
 .step-tab:hover {
     border-color: #a100ff;
@@ -113,22 +109,31 @@
     border-top-color: #a100ff;
     border-color: #a100ff;
     background: rgba(161, 0, 255, 0.08);
-    box-shadow: 0 0 15px rgba(161, 0, 255, 0.2);
+    box-shadow: 0 0 20px rgba(161, 0, 255, 0.15);
 }
 .step-num {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     font-weight: 900;
     color: #a100ff;
     letter-spacing: 1px;
 }
 .step-tab.active .step-title { color: #fff; }
 .step-title {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-weight: bold;
     color: #ccc;
     text-transform: uppercase;
     letter-spacing: 0.3px;
-    line-height: 1.2;
+    line-height: 1.3;
+}
+
+/* FLOW INDICATOR ARROWS */
+.step-flow-arrow {
+    color: #444;
+    font-size: 1.2rem;
+    font-weight: bold;
+    user-select: none;
+    padding: 0 4px;
 }
 
 .placeholder {
@@ -138,10 +143,6 @@
     padding: 14px 22px;
     background: rgba(161, 0, 255, 0.05);
     font-size: 1rem;
-}
-.placeholder-inline {
-    color: #888;
-    font-style: italic;
 }
 
 /* PHASE PANELS */
@@ -187,7 +188,6 @@
 /* SUBSECTIONS */
 .subsection {
     margin-bottom: 60px;
-    scroll-margin-top: 30px;
 }
 .subsection h3 {
     color: #fff;
@@ -205,9 +205,6 @@
     gap: 16px;
     margin-top: 15px;
 }
-.detail-grid.three-col {
-    grid-template-columns: repeat(3, 1fr);
-}
 .detail-field {
     border: 1px solid #333;
     background: rgba(0, 0, 0, 0.6);
@@ -221,140 +218,6 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 8px;
-}
-.field-value {
-    display: block;
-    color: #ccc;
-    font-size: 0.9rem;
-}
-
-/* ISSUE CARDS */
-.issue-card {
-    border: 1px solid #222;
-    border-left: 4px solid #a100ff;
-    background: rgba(10, 10, 10, 0.9);
-    padding: 26px 28px;
-    margin-bottom: 24px;
-}
-.issue-card.compact {
-    padding: 20px;
-    margin-bottom: 0;
-}
-.card-title {
-    font-size: 1.05rem;
-    color: #fff;
-    font-weight: bold;
-    margin-bottom: 16px;
-}
-
-/* DAX MEASURE CARDS */
-.dax-card {
-    border: 1px solid #222;
-    border-left: 4px solid #00d4ff;
-    background: rgba(10, 10, 10, 0.9);
-    padding: 26px 28px;
-    margin-bottom: 24px;
-}
-.dax-card .field-label {
-    color: #00d4ff;
-    margin-top: 16px;
-}
-.dax-card .field-label:first-of-type {
-    margin-top: 0;
-}
-.dax-formula {
-    background: #050505;
-    border: 1px solid #333;
-    padding: 14px 18px;
-    font-family: 'Courier New', Courier, monospace;
-    color: #00d4ff;
-    font-size: 0.85rem;
-    overflow-x: auto;
-    margin: 8px 0 4px;
-    white-space: pre-wrap;
-    word-break: break-word;
-}
-
-/* FRAMEWORK BREAKDOWNS */
-.framework-row {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-.framework-letter {
-    background: rgba(161, 0, 255, 0.06);
-    border: 1px solid #a100ff;
-    padding: 18px 22px;
-    min-width: 130px;
-    text-align: center;
-}
-.framework-letter .letter {
-    display: block;
-    font-size: 1.9rem;
-    font-weight: 900;
-    color: #a100ff;
-}
-.framework-letter .meaning {
-    display: block;
-    color: #ccc;
-    font-size: 0.8rem;
-    margin-top: 8px;
-}
-
-/* NUMBERED LIST */
-.case-bullets.numbered {
-    list-style: decimal;
-    padding-left: 22px;
-    color: #ccc;
-}
-.case-bullets.numbered li {
-    margin-bottom: 12px;
-    padding-left: 6px;
-}
-
-/* MINI TABLE */
-.mini-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    font-size: 0.9rem;
-}
-.mini-table th {
-    background: rgba(161, 0, 255, 0.1);
-    color: #a100ff;
-    text-transform: uppercase;
-    font-size: 0.7rem;
-    letter-spacing: 1px;
-    text-align: left;
-    padding: 12px 16px;
-    border: 1px solid #333;
-}
-.mini-table td {
-    padding: 14px 16px;
-    border: 1px solid #222;
-    color: #ccc;
-    vertical-align: top;
-}
-
-/* DASHBOARD FIGURES */
-.dashboard-figure {
-    margin: 25px 0;
-    border: 1px solid #333;
-    padding: 10px;
-    background: rgba(5, 5, 5, 0.5);
-}
-.dashboard-figure img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-.dashboard-figure figcaption {
-    color: #888;
-    font-size: 0.8rem;
-    text-align: center;
-    margin-top: 10px;
-    font-style: italic;
 }
 
 /* PUBLISH LINK */
@@ -375,26 +238,20 @@
     border: 1px solid #a100ff;
     transition: 0.3s;
 }
-.publish-btn:hover {
-    background: transparent;
-    color: #a100ff;
+
+/* FOOTER SECTION */
+footer {
+    padding: 60px 10%;
+    background: #050505;
+    text-align: center;
 }
 
-/* RESPONSIVE BREAKPOINTS */
-@media (max-width: 960px) {
+/* RESPONSIVE DESIGN MANAGEMENT */
+@media (max-width: 1150px) {
+    .step-tabs-container {
+        padding: 16px 20px;
+    }
     .step-tabs {
-        display: flex;
-        flex-wrap: nowrap;
         width: max-content;
-        gap: 8px;
-    }
-    .step-tab {
-        min-width: 140px;
-    }
-}
-@media (max-width: 600px) {
-    .glance-tags .skill-tab {
-        font-size: 0.65rem;
-        padding: 8px 12px;
     }
 }
