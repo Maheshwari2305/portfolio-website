@@ -33,25 +33,35 @@
                         <span class="step-num">01</span>
                         <span class="step-title">Discovery & Planning</span>
                     </button>
+                    <span class="step-flow-arrow">&rarr;</span>
+                    
                     <button class="step-tab" data-step="collection">
                         <span class="step-num">02</span>
                         <span class="step-title">Data Collection</span>
                     </button>
+                    <span class="step-flow-arrow">&rarr;</span>
+                    
                     <button class="step-tab" data-step="cleaning">
                         <span class="step-num">03</span>
                         <span class="step-title">Data Cleaning</span>
                     </button>
+                    <span class="step-flow-arrow">&rarr;</span>
+                    
                     <button class="step-tab" data-step="modeling">
                         <span class="step-num">04</span>
                         <span class="step-title">Data Modeling</span>
                     </button>
+                    <span class="step-flow-arrow">&rarr;</span>
+                    
                     <button class="step-tab" data-step="design">
                         <span class="step-num">05</span>
                         <span class="step-title">Dashboard Design</span>
                     </button>
+                    <span class="step-flow-arrow">&rarr;</span>
+                    
                     <button class="step-tab" data-step="outcomes">
                         <span class="step-num">06</span>
-                        <span class="step-title">Outcomes</span>
+                        <span class="step-title">Insights & Recommendations</span>
                     </button>
                 </div>
             </div>
@@ -159,28 +169,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="issue-card">
-                        <div class="card-title">Issue: [e.g. Duplicate Order rows]</div>
-                        <div class="detail-grid">
-                            <div class="detail-field">
-                                <span class="field-label">Why It Occurred</span>
-                                <span class="field-value placeholder-inline">[Add explanation]</span>
-                            </div>
-                            <div class="detail-field">
-                                <span class="field-label">How You Identified It</span>
-                                <span class="field-value placeholder-inline">[Add explanation]</span>
-                            </div>
-                            <div class="detail-field">
-                                <span class="field-label">How You Fixed It</span>
-                                <span class="field-value placeholder-inline">[Add explanation]</span>
-                            </div>
-                            <div class="detail-field">
-                                <span class="field-label">Business Impact</span>
-                                <span class="field-value placeholder-inline">[Add explanation]</span>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="subsection" id="s-clean-framework">
@@ -266,37 +254,6 @@
                             <p class="placeholder-inline">[Add explanation]</p>
                         </div>
                     </div>
-                    <p class="placeholder" style="margin-top: 20px;">[Add content: why you chose a Star Schema over a fully normalized model for this Power BI report.]</p>
-                </div>
-
-                <div class="subsection" id="s-relationships">
-                    <h3>Relationships</h3>
-                    <p class="placeholder">[Add content: table relationships — cardinality (1:many), cross-filter direction, active/inactive relationships.]</p>
-                </div>
-
-                <div class="subsection" id="s-dax-measures">
-                    <h3>DAX Measures (Purpose + Formula + Business Use)</h3>
-                    <p class="placeholder">[Duplicate the card below for each measure — Total Sales, Profit Margin %, YoY Growth, etc.]</p>
-
-                    <div class="dax-card">
-                        <div class="card-title">[e.g. Profit Margin %]</div>
-                        <span class="field-label">Purpose</span>
-                        <p class="field-value placeholder-inline">[Add explanation]</p>
-                        <span class="field-label">Formula</span>
-                        <div class="dax-formula">[e.g. Profit Margin % = DIVIDE(SUM(Orders[Profit]), SUM(Orders[Sales]), 0)]</div>
-                        <span class="field-label">Business Use</span>
-                        <p class="field-value placeholder-inline">[Add explanation]</p>
-                    </div>
-
-                    <div class="dax-card">
-                        <div class="card-title">[e.g. Sales MoM %]</div>
-                        <span class="field-label">Purpose</span>
-                        <p class="field-value placeholder-inline">[Add explanation]</p>
-                        <span class="field-label">Formula</span>
-                        <div class="dax-formula">[e.g. Sales MoM % = DIVIDE([Total Sales] - [Sales LM], [Sales LM], 0)]</div>
-                        <span class="field-label">Business Use</span>
-                        <p class="field-value placeholder-inline">[Add explanation]</p>
-                    </div>
                 </div>
 
             </div>
@@ -316,64 +273,6 @@
                     <p class="placeholder">[Add content: wireframing approach, why 3 pages, layout decisions, page navigation setup (buttons/bookmarks).]</p>
                 </div>
 
-                <div class="subsection" id="s-visual-selection">
-                    <h3>Visual Selection (Why Line Chart, Why Donut, Why KPI Cards, etc.)</h3>
-                    <table class="mini-table">
-                        <thead>
-                            <tr><th>Visual</th><th>Used For</th><th>Why Chosen</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Line Chart</td>
-                                <td>Sales Growth Trend</td>
-                                <td class="placeholder-inline">[Add reasoning]</td>
-                            </tr>
-                            <tr>
-                                <td>Donut Chart</td>
-                                <td>Sales by Segment / Category</td>
-                                <td class="placeholder-inline">[Add reasoning]</td>
-                            </tr>
-                            <tr>
-                                <td>KPI Cards</td>
-                                <td>Total Sales, Profit, Orders, Customers</td>
-                                <td class="placeholder-inline">[Add reasoning]</td>
-                            </tr>
-                            <tr>
-                                <td>Bar Chart</td>
-                                <td>Sales by Region / Sub-Category</td>
-                                <td class="placeholder-inline">[Add reasoning]</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="subsection" id="s-sales-dashboard">
-                    <h3>Sales Dashboard Explanation</h3>
-                    <p class="placeholder">[Add content: walk through what's on this page and what it tells the viewer.]</p>
-                    <figure class="dashboard-figure">
-                        <img src="dashboard-sales-performance.png" alt="Sales Performance Dashboard page">
-                        <figcaption>Sales Performance Dashboard — revenue trend, segment and regional breakdown</figcaption>
-                    </figure>
-                </div>
-
-                <div class="subsection" id="s-product-dashboard">
-                    <h3>Product Dashboard Explanation</h3>
-                    <p class="placeholder">[Add content: walk through what's on this page and what it tells the viewer.]</p>
-                    <figure class="dashboard-figure">
-                        <img src="dashboard-product-analysis.png" alt="Product Analysis Dashboard page">
-                        <figcaption>Product Analysis Dashboard — category and sub-category profitability drill-down</figcaption>
-                    </figure>
-                </div>
-
-                <div class="subsection" id="s-executive-summary">
-                    <h3>Executive Summary Explanation</h3>
-                    <p class="placeholder">[Add content: walk through what's on this page and how it's meant to be used by leadership.]</p>
-                    <figure class="dashboard-figure">
-                        <img src="dashboard-recommendations.png" alt="Executive Summary and Recommendations page">
-                        <figcaption>Executive Summary & Recommendations — key findings translated into action items</figcaption>
-                    </figure>
-                </div>
-
             </div>
 
             <div class="step-panel" id="panel-outcomes">
@@ -382,47 +281,11 @@
                     <a href="#s-insights">Business Insights</a>
                     <a href="#s-recommendations">Recommendations</a>
                     <a href="#s-challenges">Challenges Faced</a>
-                    <a href="#s-lessons">Lessons Learned</a>
-                    <a href="#s-future">Future Improvements</a>
                 </nav>
 
                 <div class="subsection" id="s-insights">
                     <h3>Business Insights</h3>
-                    <div class="insight-grid">
-                        <div class="insight-card">
-                            <span class="insight-number">$649K</span>
-                            <span class="insight-label">Total Profit</span>
-                        </div>
-                        <div class="insight-card">
-                            <span class="insight-number">51.68%</span>
-                            <span class="insight-label">Sales from Consumer Segment</span>
-                        </div>
-                        <div class="insight-card">
-                            <span class="insight-number">4.70%</span>
-                            <span class="insight-label">Furniture Profit Margin (Lowest)</span>
-                        </div>
-                    </div>
-                    <p class="placeholder">[Add content: 2-3 sentences on the most important findings and why they matter.]</p>
-                </div>
-
-                <div class="subsection" id="s-recommendations">
-                    <h3>Recommendations</h3>
-                    <p class="placeholder">[Add content: what actions the business should take based on your findings.]</p>
-                </div>
-
-                <div class="subsection" id="s-challenges">
-                    <h3>Challenges Faced</h3>
-                    <p class="placeholder">[Add content: any roadblocks — messy data, modeling decisions, DAX debugging, etc.]</p>
-                </div>
-
-                <div class="subsection" id="s-lessons">
-                    <h3>Lessons Learned</h3>
-                    <p class="placeholder">[Add content: what you'd do differently or what this project taught you.]</p>
-                </div>
-
-                <div class="subsection" id="s-future">
-                    <h3>Future Improvements</h3>
-                    <p class="placeholder">[Add content: what you'd add next — e.g. forecasting, more granular filters, drill-through pages.]</p>
+                    <p class="placeholder">[Add content: findings statement.]</p>
                 </div>
 
             </div>
