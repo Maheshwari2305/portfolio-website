@@ -30,7 +30,8 @@ body { background-color: #000; color: #fff; font-family: 'Segoe UI', sans-serif;
 .profile-image-wrapper { flex: 1; display: flex; justify-content: center; }
 .profile-photo { width: 320px; height: 320px; border-radius: 50%; border: 4px solid #a100ff; box-shadow: 0 0 30px rgba(161, 0, 255, 0.4); object-fit: cover; object-position: center 20%; }
 .profile-text { flex: 2; }
-.intro-text { font-size: 1.3rem; color: #fff; font-weight: 500; margin-bottom: 25px; border-left: 4px solid #a100ff; padding-left: 20px; }
+#about h2 { border-left: 4px solid #a100ff; padding-left: 20px; }
+.intro-text { font-size: 1.3rem; color: #fff; font-weight: 500; margin-bottom: 25px; }
 .profile-text p { margin-bottom: 20px; color: #ccc; font-size: 1.1rem; }
 h2 { font-size: 2.2rem; color: #a100ff; margin-bottom: 25px; font-weight: 800; }
 .skills-grid { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 25px; }
@@ -89,7 +90,7 @@ footer { padding: 100px 10%; background: #000; border-top: 1px solid #222; text-
     .hero h1 { font-size: 2.8rem; }
     .profile-container { flex-direction: column; align-items: center; text-align: center; }
     .profile-photo { width: 220px; height: 220px; }
-    .intro-text { border-left: none; padding-left: 0; }
+    #about h2 { border-left: none; padding-left: 0; }
     .welcome-text { align-self: center; }
     .experience-card { flex-direction: column; gap: 30px; }
     .footer-divider { display: none; }
