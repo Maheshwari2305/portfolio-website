@@ -14,50 +14,443 @@
         <section class="case-heading">
             <a href="index.html#projects" class="back-link">&larr; Back to Portfolio</a>
             <h2>Ecommerce Sales & Profitability Dashboard</h2>
+
+            <!-- AT A GLANCE — fast scan for someone landing directly on this page -->
+            <div class="glance-bar">
+                <div class="glance-tags">
+                    <span>Excel</span>
+                    <span>SQL</span>
+                    <span>Power Query</span>
+                    <span>Data Modeling</span>
+                    <span>DAX</span>
+                    <span>Power BI</span>
+                </div>
+            </div>
         </section>
 
-        <!-- STEP CARDS -->
+        <!-- PHASE CARDS -->
         <section class="case-steps">
             <div class="step-tabs">
-                <button class="step-tab active" data-step="collection">
+                <button class="step-tab active" data-step="discovery">
                     <span class="step-num">01</span>
+                    <span class="step-title">Discovery & Planning</span>
+                </button>
+                <span class="step-arrow">&rarr;</span>
+                <button class="step-tab" data-step="collection">
+                    <span class="step-num">02</span>
                     <span class="step-title">Data Collection</span>
                 </button>
                 <span class="step-arrow">&rarr;</span>
-                <button class="step-tab" data-step="preparation">
-                    <span class="step-num">02</span>
-                    <span class="step-title">Data Preparation</span>
-                </button>
-                <span class="step-arrow">&rarr;</span>
-                <button class="step-tab" data-step="eda">
+                <button class="step-tab" data-step="cleaning">
                     <span class="step-num">03</span>
-                    <span class="step-title">EDA</span>
+                    <span class="step-title">Data Cleaning</span>
                 </button>
                 <span class="step-arrow">&rarr;</span>
-                <button class="step-tab" data-step="dashboard">
+                <button class="step-tab" data-step="modeling">
                     <span class="step-num">04</span>
-                    <span class="step-title">Dashboard</span>
+                    <span class="step-title">Data Modeling</span>
+                </button>
+                <span class="step-arrow">&rarr;</span>
+                <button class="step-tab" data-step="design">
+                    <span class="step-num">05</span>
+                    <span class="step-title">Dashboard Design</span>
+                </button>
+                <span class="step-arrow">&rarr;</span>
+                <button class="step-tab" data-step="outcomes">
+                    <span class="step-num">06</span>
+                    <span class="step-title">Outcomes</span>
                 </button>
             </div>
 
-            <!-- STEP PANELS -->
-            <div class="step-panels">
-                <div class="step-panel active" id="panel-collection">
-                    <p class="placeholder">[Content coming soon — data collection steps go here.]</p>
+            <!-- ============================================================ -->
+            <!-- PHASE 01: DISCOVERY & PLANNING -->
+            <!-- ============================================================ -->
+            <div class="step-panel active" id="panel-discovery">
+
+                <nav class="subnav">
+                    <a href="#s-overview">Project Overview</a>
+                    <a href="#s-business-understanding">Business Understanding</a>
+                    <a href="#s-business-requirements">Business Requirements</a>
+                </nav>
+
+                <div class="subsection" id="s-overview">
+                    <h3>Project Overview</h3>
+                    <p class="placeholder">[Add content: what this project is, who it's for, and what it delivers.]</p>
                 </div>
 
-                <div class="step-panel" id="panel-preparation">
-                    <p class="placeholder">[Content coming soon — data preparation steps go here.]</p>
+                <div class="subsection" id="s-business-understanding">
+                    <h3>Business Understanding</h3>
+                    <p class="placeholder">[Add content: the business context — what kind of company/industry, what problem they were facing before this dashboard existed.]</p>
                 </div>
 
-                <div class="step-panel" id="panel-eda">
-                    <p class="placeholder">[Content coming soon — EDA / exploratory analysis goes here.]</p>
+                <div class="subsection" id="s-business-requirements">
+                    <h3>Business Requirements</h3>
+                    <p class="placeholder">[Add content: what stakeholders asked for — e.g. "leadership needed visibility into regional profit margins." Bullet list works well here.]</p>
                 </div>
 
-                <div class="step-panel" id="panel-dashboard">
-                    <p class="placeholder">[Content coming soon — dashboard build details go here.]</p>
-                </div>
             </div>
+
+            <!-- ============================================================ -->
+            <!-- PHASE 02: DATA COLLECTION & UNDERSTANDING -->
+            <!-- ============================================================ -->
+            <div class="step-panel" id="panel-collection">
+
+                <nav class="subnav">
+                    <a href="#s-data-collection">Data Collection</a>
+                    <a href="#s-dataset-understanding">Dataset Understanding</a>
+                    <a href="#s-data-profiling">Data Profiling</a>
+                </nav>
+
+                <div class="subsection" id="s-data-collection">
+                    <h3>Data Collection</h3>
+                    <p class="placeholder">[Add content: where the data came from, file format, how it was accessed.]</p>
+                </div>
+
+                <div class="subsection" id="s-dataset-understanding">
+                    <h3>Dataset Understanding</h3>
+                    <p class="placeholder">[Add content: tables/sheets involved, number of rows/columns, what each field represents.]</p>
+                    <div class="detail-grid">
+                        <div class="detail-field">
+                            <span class="field-label">Records</span>
+                            <span class="field-value">[e.g. 9,994 rows]</span>
+                        </div>
+                        <div class="detail-field">
+                            <span class="field-label">Tables</span>
+                            <span class="field-value">[e.g. Orders, Customers, Products]</span>
+                        </div>
+                        <div class="detail-field">
+                            <span class="field-label">Time Span</span>
+                            <span class="field-value">2018 - 2021</span>
+                        </div>
+                        <div class="detail-field">
+                            <span class="field-label">Format</span>
+                            <span class="field-value">[e.g. CSV / Excel]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection" id="s-data-profiling">
+                    <h3>Data Profiling</h3>
+                    <p class="placeholder">[Add content: initial quality check — nulls, duplicates, data types, outliers found before cleaning began. A summary table works well here.]</p>
+                </div>
+
+            </div>
+
+            <!-- ============================================================ -->
+            <!-- PHASE 03: DATA CLEANING & QUALITY -->
+            <!-- ============================================================ -->
+            <div class="step-panel" id="panel-cleaning">
+
+                <nav class="subnav">
+                    <a href="#s-cleaning-issues">Cleaning Issues</a>
+                    <a href="#s-clean-framework">CLEAN Framework</a>
+                    <a href="#s-scan-framework">SCAN Framework</a>
+                    <a href="#s-dash-framework">DASH Framework</a>
+                    <a href="#s-power-query">Power Query Steps</a>
+                </nav>
+
+                <div class="subsection" id="s-cleaning-issues">
+                    <h3>Every Data Cleaning Issue</h3>
+                    <p class="placeholder">[Duplicate the card below for each issue you fixed — e.g. missing Postal Codes, inconsistent Category naming, duplicate Order IDs, negative Discount values, etc.]</p>
+
+                    <div class="issue-card">
+                        <div class="card-title">Issue: [e.g. Missing Postal Code values]</div>
+                        <div class="detail-grid">
+                            <div class="detail-field">
+                                <span class="field-label">Why It Occurred</span>
+                                <span class="field-value placeholder-inline">[Add explanation]</span>
+                            </div>
+                            <div class="detail-field">
+                                <span class="field-label">How You Identified It</span>
+                                <span class="field-value placeholder-inline">[Add explanation]</span>
+                            </div>
+                            <div class="detail-field">
+                                <span class="field-label">How You Fixed It</span>
+                                <span class="field-value placeholder-inline">[Add explanation]</span>
+                            </div>
+                            <div class="detail-field">
+                                <span class="field-label">Business Impact</span>
+                                <span class="field-value placeholder-inline">[Add explanation]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="issue-card">
+                        <div class="card-title">Issue: [e.g. Duplicate Order rows]</div>
+                        <div class="detail-grid">
+                            <div class="detail-field">
+                                <span class="field-label">Why It Occurred</span>
+                                <span class="field-value placeholder-inline">[Add explanation]</span>
+                            </div>
+                            <div class="detail-field">
+                                <span class="field-label">How You Identified It</span>
+                                <span class="field-value placeholder-inline">[Add explanation]</span>
+                            </div>
+                            <div class="detail-field">
+                                <span class="field-label">How You Fixed It</span>
+                                <span class="field-value placeholder-inline">[Add explanation]</span>
+                            </div>
+                            <div class="detail-field">
+                                <span class="field-label">Business Impact</span>
+                                <span class="field-value placeholder-inline">[Add explanation]</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection" id="s-clean-framework">
+                    <h3>CLEAN Framework</h3>
+                    <p class="placeholder">[Explain how you applied this framework to the dataset.]</p>
+                    <div class="framework-row">
+                        <div class="framework-letter"><span class="letter">C</span><span class="meaning">[Consistent]</span></div>
+                        <div class="framework-letter"><span class="letter">L</span><span class="meaning">[Legitimate]</span></div>
+                        <div class="framework-letter"><span class="letter">E</span><span class="meaning">[Error-free]</span></div>
+                        <div class="framework-letter"><span class="letter">A</span><span class="meaning">[Accurate]</span></div>
+                        <div class="framework-letter"><span class="letter">N</span><span class="meaning">[Normalized]</span></div>
+                    </div>
+                </div>
+
+                <div class="subsection" id="s-scan-framework">
+                    <h3>SCAN Framework</h3>
+                    <p class="placeholder">[Explain how you applied this framework to the dataset.]</p>
+                    <div class="framework-row">
+                        <div class="framework-letter"><span class="letter">S</span><span class="meaning">[Structure]</span></div>
+                        <div class="framework-letter"><span class="letter">C</span><span class="meaning">[Completeness]</span></div>
+                        <div class="framework-letter"><span class="letter">A</span><span class="meaning">[Accuracy]</span></div>
+                        <div class="framework-letter"><span class="letter">N</span><span class="meaning">[Normalization]</span></div>
+                    </div>
+                </div>
+
+                <div class="subsection" id="s-dash-framework">
+                    <h3>DASH Framework</h3>
+                    <p class="placeholder">[Explain how you applied this framework to the dataset.]</p>
+                    <div class="framework-row">
+                        <div class="framework-letter"><span class="letter">D</span><span class="meaning">[Duplicates]</span></div>
+                        <div class="framework-letter"><span class="letter">A</span><span class="meaning">[Anomalies]</span></div>
+                        <div class="framework-letter"><span class="letter">S</span><span class="meaning">[Standardization]</span></div>
+                        <div class="framework-letter"><span class="letter">H</span><span class="meaning">[Handling nulls]</span></div>
+                    </div>
+                </div>
+
+                <div class="subsection" id="s-power-query">
+                    <h3>Power Query Transformations (Step by Step)</h3>
+                    <p class="placeholder">[List each transformation in order — this reads well as a numbered list.]</p>
+                    <ol class="case-bullets numbered">
+                        <li class="placeholder-inline">[Step 1 — e.g. Removed duplicate rows based on Order ID]</li>
+                        <li class="placeholder-inline">[Step 2 — e.g. Split Customer Name into First/Last Name]</li>
+                        <li class="placeholder-inline">[Step 3 — e.g. Changed data types for Order Date, Sales, Profit]</li>
+                        <li class="placeholder-inline">[Step 4 — e.g. Created custom column for Profit Margin]</li>
+                    </ol>
+                </div>
+
+            </div>
+
+            <!-- ============================================================ -->
+            <!-- PHASE 04: DATA MODELING -->
+            <!-- ============================================================ -->
+            <div class="step-panel" id="panel-modeling">
+
+                <nav class="subnav">
+                    <a href="#s-data-modeling">Data Modeling</a>
+                    <a href="#s-star-schema">Star Schema</a>
+                    <a href="#s-normalization">Normalization</a>
+                    <a href="#s-relationships">Relationships</a>
+                    <a href="#s-dax-measures">DAX Measures</a>
+                </nav>
+
+                <div class="subsection" id="s-data-modeling">
+                    <h3>Data Modeling</h3>
+                    <p class="placeholder">[Add content: overall modeling approach and reasoning.]</p>
+                </div>
+
+                <div class="subsection" id="s-star-schema">
+                    <h3>Star Schema</h3>
+                    <p class="placeholder">[Add content: fact table and dimension tables used. A diagram image can go here once you share the model screenshot.]</p>
+                </div>
+
+                <div class="subsection" id="s-normalization">
+                    <h3>Normalization (1NF, 2NF, 3NF) & Why Star Schema Was Chosen</h3>
+                    <div class="detail-grid three-col">
+                        <div class="issue-card compact">
+                            <div class="card-title">1NF</div>
+                            <p class="placeholder-inline">[Add explanation]</p>
+                        </div>
+                        <div class="issue-card compact">
+                            <div class="card-title">2NF</div>
+                            <p class="placeholder-inline">[Add explanation]</p>
+                        </div>
+                        <div class="issue-card compact">
+                            <div class="card-title">3NF</div>
+                            <p class="placeholder-inline">[Add explanation]</p>
+                        </div>
+                    </div>
+                    <p class="placeholder" style="margin-top: 20px;">[Add content: why you chose a Star Schema over a fully normalized model for this Power BI report.]</p>
+                </div>
+
+                <div class="subsection" id="s-relationships">
+                    <h3>Relationships</h3>
+                    <p class="placeholder">[Add content: table relationships — cardinality (1:many), cross-filter direction, active/inactive relationships.]</p>
+                </div>
+
+                <div class="subsection" id="s-dax-measures">
+                    <h3>DAX Measures (Purpose + Formula + Business Use)</h3>
+                    <p class="placeholder">[Duplicate the card below for each measure — Total Sales, Profit Margin %, YoY Growth, etc.]</p>
+
+                    <div class="dax-card">
+                        <div class="card-title">[e.g. Profit Margin %]</div>
+                        <span class="field-label">Purpose</span>
+                        <p class="field-value placeholder-inline">[Add explanation]</p>
+                        <span class="field-label">Formula</span>
+                        <div class="dax-formula">[e.g. Profit Margin % = DIVIDE(SUM(Orders[Profit]), SUM(Orders[Sales]), 0)]</div>
+                        <span class="field-label">Business Use</span>
+                        <p class="field-value placeholder-inline">[Add explanation]</p>
+                    </div>
+
+                    <div class="dax-card">
+                        <div class="card-title">[e.g. Sales MoM %]</div>
+                        <span class="field-label">Purpose</span>
+                        <p class="field-value placeholder-inline">[Add explanation]</p>
+                        <span class="field-label">Formula</span>
+                        <div class="dax-formula">[e.g. Sales MoM % = DIVIDE([Total Sales] - [Sales LM], [Sales LM], 0)]</div>
+                        <span class="field-label">Business Use</span>
+                        <p class="field-value placeholder-inline">[Add explanation]</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ============================================================ -->
+            <!-- PHASE 05: DASHBOARD DESIGN -->
+            <!-- ============================================================ -->
+            <div class="step-panel" id="panel-design">
+
+                <nav class="subnav">
+                    <a href="#s-dashboard-planning">Dashboard Planning</a>
+                    <a href="#s-visual-selection">Visual Selection</a>
+                    <a href="#s-sales-dashboard">Sales Dashboard</a>
+                    <a href="#s-product-dashboard">Product Dashboard</a>
+                    <a href="#s-executive-summary">Executive Summary</a>
+                </nav>
+
+                <div class="subsection" id="s-dashboard-planning">
+                    <h3>Dashboard Planning</h3>
+                    <p class="placeholder">[Add content: wireframing approach, why 3 pages, layout decisions, page navigation setup (buttons/bookmarks).]</p>
+                </div>
+
+                <div class="subsection" id="s-visual-selection">
+                    <h3>Visual Selection (Why Line Chart, Why Donut, Why KPI Cards, etc.)</h3>
+                    <table class="mini-table">
+                        <thead>
+                            <tr><th>Visual</th><th>Used For</th><th>Why Chosen</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Line Chart</td>
+                                <td>Sales Growth Trend</td>
+                                <td class="placeholder-inline">[Add reasoning]</td>
+                            </tr>
+                            <tr>
+                                <td>Donut Chart</td>
+                                <td>Sales by Segment / Category</td>
+                                <td class="placeholder-inline">[Add reasoning]</td>
+                            </tr>
+                            <tr>
+                                <td>KPI Cards</td>
+                                <td>Total Sales, Profit, Orders, Customers</td>
+                                <td class="placeholder-inline">[Add reasoning]</td>
+                            </tr>
+                            <tr>
+                                <td>Bar Chart</td>
+                                <td>Sales by Region / Sub-Category</td>
+                                <td class="placeholder-inline">[Add reasoning]</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="subsection" id="s-sales-dashboard">
+                    <h3>Sales Dashboard Explanation</h3>
+                    <p class="placeholder">[Add content: walk through what's on this page and what it tells the viewer.]</p>
+                    <figure class="dashboard-figure">
+                        <img src="dashboard-sales-performance.png" alt="Sales Performance Dashboard page">
+                        <figcaption>Sales Performance Dashboard — revenue trend, segment and regional breakdown</figcaption>
+                    </figure>
+                </div>
+
+                <div class="subsection" id="s-product-dashboard">
+                    <h3>Product Dashboard Explanation</h3>
+                    <p class="placeholder">[Add content: walk through what's on this page and what it tells the viewer.]</p>
+                    <figure class="dashboard-figure">
+                        <img src="dashboard-product-analysis.png" alt="Product Analysis Dashboard page">
+                        <figcaption>Product Analysis Dashboard — category and sub-category profitability drill-down</figcaption>
+                    </figure>
+                </div>
+
+                <div class="subsection" id="s-executive-summary">
+                    <h3>Executive Summary Explanation</h3>
+                    <p class="placeholder">[Add content: walk through what's on this page and how it's meant to be used by leadership.]</p>
+                    <figure class="dashboard-figure">
+                        <img src="dashboard-recommendations.png" alt="Executive Summary and Recommendations page">
+                        <figcaption>Executive Summary & Recommendations — key findings translated into action items</figcaption>
+                    </figure>
+                </div>
+
+            </div>
+
+            <!-- ============================================================ -->
+            <!-- PHASE 06: OUTCOMES & REFLECTION -->
+            <!-- ============================================================ -->
+            <div class="step-panel" id="panel-outcomes">
+
+                <nav class="subnav">
+                    <a href="#s-insights">Business Insights</a>
+                    <a href="#s-recommendations">Recommendations</a>
+                    <a href="#s-challenges">Challenges Faced</a>
+                    <a href="#s-lessons">Lessons Learned</a>
+                    <a href="#s-future">Future Improvements</a>
+                </nav>
+
+                <div class="subsection" id="s-insights">
+                    <h3>Business Insights</h3>
+                    <div class="insight-grid">
+                        <div class="insight-card">
+                            <span class="insight-number">$649K</span>
+                            <span class="insight-label">Total Profit</span>
+                        </div>
+                        <div class="insight-card">
+                            <span class="insight-number">51.68%</span>
+                            <span class="insight-label">Sales from Consumer Segment</span>
+                        </div>
+                        <div class="insight-card">
+                            <span class="insight-number">4.70%</span>
+                            <span class="insight-label">Furniture Profit Margin (Lowest)</span>
+                        </div>
+                    </div>
+                    <p class="placeholder">[Add content: 2-3 sentences on the most important findings and why they matter.]</p>
+                </div>
+
+                <div class="subsection" id="s-recommendations">
+                    <h3>Recommendations</h3>
+                    <p class="placeholder">[Add content: what actions the business should take based on your findings.]</p>
+                </div>
+
+                <div class="subsection" id="s-challenges">
+                    <h3>Challenges Faced</h3>
+                    <p class="placeholder">[Add content: any roadblocks — messy data, modeling decisions, DAX debugging, etc.]</p>
+                </div>
+
+                <div class="subsection" id="s-lessons">
+                    <h3>Lessons Learned</h3>
+                    <p class="placeholder">[Add content: what you'd do differently or what this project taught you.]</p>
+                </div>
+
+                <div class="subsection" id="s-future">
+                    <h3>Future Improvements</h3>
+                    <p class="placeholder">[Add content: what you'd add next — e.g. forecasting, more granular filters, drill-through pages.]</p>
+                </div>
+
+            </div>
+
         </section>
 
         <!-- PUBLISH LINK -->
