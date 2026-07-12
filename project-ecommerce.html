@@ -3,207 +3,584 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecommerce Sales & Profitability Dashboard | M.R. Data & Insights</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="case-study.css">
+    <title>Ecommerce Sales & Profitability Dashboard</title>
+    <style>
+        /* ==========================================================================
+           GLOBAL DARK STYLES & BACKGROUND SETUP
+           ========================================================================== */
+        html, 
+        body, 
+        main, 
+        .case-steps,
+        .case-heading {
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.96)),
+                        url('hero-bg.jpg') no-repeat center center fixed !important;
+            background-size: cover !important;
+            background-attachment: fixed !important;
+            color: #ccc;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* HEADING LAYER */
+        .case-heading {
+            padding: 80px 10% 30px;
+            border-bottom: 1px solid #222;
+            text-align: center;
+        }
+        .back-link {
+            display: inline-block;
+            color: #888;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: 0.3s;
+            margin-bottom: 20px;
+        }
+        .back-link:hover { color: #a100ff; }
+        
+        .case-heading h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #fff;
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        /* AT A GLANCE PILLS SYSTEM */
+        .glance-bar {
+            max-width: 950px;
+            margin: 25px auto 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .glance-tags {
+            display: flex;
+            gap: 0;
+            flex-wrap: wrap;
+            justify-content: center;
+            border: 1px solid #a100ff;
+            padding: 0;
+        }
+        .glance-tags .skill-tab {
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: #a100ff;
+            border-right: 1px solid #a100ff;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: rgba(0, 0, 0, 0.4);
+            display: inline-block;
+        }
+        .glance-tags .skill-tab:last-child {
+            border-right: none;
+        }
+
+        /* NAVIGATION CONTAINER - TRANSPARENT & IN POSITION */
+        .step-tabs-container {
+            position: static !important;
+            background: transparent !important;
+            background-color: transparent !important;
+            backdrop-filter: none !important;
+            border: none !important;
+            margin: 40px auto 20px !important;
+            padding: 0 4% !important;
+            width: 100% !important;
+            max-width: 1400px;
+            box-sizing: border-box;
+        }
+        .step-tabs {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+        }
+
+        /* PHASE CARDS WITH PURPLE BORDER HIGHLIGHT EFFECTS */
+        .step-tab {
+            background: rgba(20, 20, 20, 0.6) !important; 
+            border: 1px solid #333 !important;
+            border-top: 4px solid #333 !important;
+            color: #aaa !important;
+            padding: 20px 16px;  
+            min-width: 175px;    
+            min-height: 110px;   
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .step-tab:hover {
+            border-color: #a100ff !important;
+            border-top-color: #a100ff !important;
+            color: #fff !important;
+        }
+        .step-tab.active {
+            border-top-color: #a100ff !important;
+            border-color: #a100ff !important;
+            background: rgba(161, 0, 255, 0.1) !important;
+            box-shadow: 0 0 20px rgba(161, 0, 255, 0.15);
+            color: #fff !important;
+        }
+        .step-num {
+            font-size: 0.9rem;
+            font-weight: 900;
+            color: #a100ff;
+            letter-spacing: 1px;
+        }
+        .step-title {
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            line-height: 1.4;
+        }
+
+        .step-flow-arrow {
+            color: #444;
+            font-size: 1.2rem;
+            user-select: none;
+        }
+
+        /* WRAPPER CONTENT PANELS */
+        .case-steps {
+            padding: 20px 10% 60px;
+        }
+        .step-panel {
+            display: none;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+        .step-panel.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* RECRUITER SUBSECTIONS LAYOUT */
+        .subsection {
+            margin-bottom: 45px;
+        }
+        .subsection h3 {
+            color: #fff;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-left: 14px;
+            border-left: 4px solid #a100ff;
+            letter-spacing: 0.5px;
+        }
+
+        /* EDITED MODERATE BULLET LISTS WITH BOLD HIGHLIGHTS */
+        ul.recruiter-list {
+            list-style: none;
+            padding: 0;
+        }
+        ul.recruiter-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 14px;
+            font-size: 0.98rem;
+            color: #ccc;
+            line-height: 1.6;
+        }
+        ul.recruiter-list li::before {
+            content: "•";
+            color: #a100ff;
+            font-weight: bold;
+            font-size: 1.3rem;
+            position: absolute;
+            left: 6px;
+            top: -2px;
+        }
+        ul.recruiter-list li strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        code {
+            font-family: Consolas, Monaco, monospace;
+            background: rgba(255, 255, 255, 0.08);
+            color: #e0aaff;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        /* PUBLISHED BUTTON BANNER AREA */
+        .case-publish {
+            padding: 40px 10% 100px;
+            text-align: center;
+        }
+        .publish-btn {
+            display: inline-block;
+            color: #fff;
+            background: #a100ff;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            padding: 16px 36px;
+            border: 1px solid #a100ff;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(161, 0, 255, 0.2);
+        }
+        .publish-btn:hover {
+            background: transparent;
+            color: #a100ff;
+            box-shadow: 0 4px 20px rgba(161, 0, 255, 0.4);
+        }
+
+        footer {
+            padding: 40px 10%;
+            background: #050505 !important;
+            text-align: center;
+            border-top: 1px solid #111;
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        /* RESPONSIVE SCROLL SETTINGS FOR TABS TRACK */
+        @media (max-width: 1250px) {
+            .step-tabs-container {
+                overflow-x: auto !important;
+                padding: 12px 10px !important;
+            }
+            .step-tabs {
+                width: max-content;
+                padding: 0 5px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <main>
-        <section class="case-heading">
-            <a href="index.html#projects" class="back-link">&larr; Back to Portfolio</a>
-            <h2>Ecommerce Sales & Profitability Dashboard</h2>
-
-            <div class="glance-bar">
-                <div class="glance-tags">
-                    <span class="skill-tab">Excel</span>
-                    <span class="skill-tab">SQL</span>
-                    <span class="skill-tab">Power Query</span>
-                    <span class="skill-tab">Data Modeling</span>
-                    <span class="skill-tab">DAX</span>
-                    <span class="skill-tab">Power BI</span>
-                </div>
+    <div class="case-heading">
+        <a href="#" class="back-link">← Back To Portfolio</a>
+        <h2>Ecommerce Sales & Profitability Dashboard</h2>
+        
+        <div class="glance-bar">
+            <div class="glance-tags">
+                <span class="skill-tab">Excel</span>
+                <span class="skill-tab">SQL</span>
+                <span class="skill-tab">Power Query</span>
+                <span class="skill-tab">Data Modeling</span>
+                <span class="skill-tab">DAX</span>
+                <span class="skill-tab">Power BI</span>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <div class="step-tabs-container">
-            <div class="step-tabs">
-                <button class="step-tab active" data-step="discovery">
-                    <span class="step-num">01</span>
-                    <span class="step-title">Discovery & Planning</span>
-                </button>
-                <span class="step-flow-arrow">&rarr;</span>
-                
-                <button class="step-tab" data-step="collection">
-                    <span class="step-num">02</span>
-                    <span class="step-title">Data Collection</span>
-                </button>
-                <span class="step-flow-arrow">&rarr;</span>
-                
-                <button class="step-tab" data-step="cleaning">
-                    <span class="step-num">03</span>
-                    <span class="step-title">Data Cleaning</span>
-                </button>
-                <span class="step-flow-arrow">&rarr;</span>
-                
-                <button class="step-tab" data-step="modeling">
-                    <span class="step-num">04</span>
-                    <span class="step-title">Data Modeling</span>
-                </button>
-                <span class="step-flow-arrow">&rarr;</span>
-                
-                <button class="step-tab" data-step="design">
-                    <span class="step-num">05</span>
-                    <span class="step-title">Dashboard Design</span>
-                </button>
-                <span class="step-flow-arrow">&rarr;</span>
-                
-                <button class="step-tab" data-step="outcomes">
-                    <span class="step-num">06</span>
-                    <span class="step-title">Insights & Recommendations</span>
-                </button>
+    <div class="step-tabs-container">
+        <div class="step-tabs">
+            <div class="step-tab active" onclick="switchTab('phase1')">
+                <span class="step-num">01</span>
+                <span class="step-title">Discovery & Planning</span>
+            </div>
+            <div class="step-flow-arrow">→</div>
+            
+            <div class="step-tab" onclick="switchTab('phase2')">
+                <span class="step-num">02</span>
+                <span class="step-title">Data Collection</span>
+            </div>
+            <div class="step-flow-arrow">→</div>
+            
+            <div class="step-tab" onclick="switchTab('phase3')">
+                <span class="step-num">03</span>
+                <span class="step-title">Data Cleaning</span>
+            </div>
+            <div class="step-flow-arrow">→</div>
+            
+            <div class="step-tab" onclick="switchTab('phase4')">
+                <span class="step-num">04</span>
+                <span class="step-title">Data Modeling</span>
+            </div>
+            <div class="step-flow-arrow">→</div>
+            
+            <div class="step-tab" onclick="switchTab('phase5')">
+                <span class="step-num">05</span>
+                <span class="step-title">Dashboard Design</span>
+            </div>
+            <div class="step-flow-arrow">→</div>
+            
+            <div class="step-tab" onclick="switchTab('phase6')">
+                <span class="step-num">06</span>
+                <span class="step-title">Insights & Action Items</span>
+            </div>
+        </div>
+    </div>
+
+    <main class="case-steps">
+
+        <div id="phase1" class="step-panel active">
+            <div class="subsection">
+                <h3>Project Overview</h3>
+                <ul class="recruiter-list">
+                    <li><strong>Interactive Dashboard Solution:</strong> Designs and develops a comprehensive Retail Sales Analysis Dashboard using Microsoft Power BI to replace traditional static spreadsheet reports.</li>
+                    <li><strong>Transforms Raw Data:</strong> Turns unutilized daily transactional records (sales, customer purchases, and product inventory) into clear, meaningful visual insights.</li>
+                    <li><strong>Improves Reporting Efficiency:</strong> Delivers automated calculations, real-time chart interaction, KPI tracking, and executive-level summaries for fast decision-making.</li>
+                </ul>
+            </div>
+            <div class="subsection">
+                <h3>Business Understanding</h3>
+                <ul class="recruiter-list">
+                    <li><strong>Addresses Retail Challenges:</strong> Identifies the business need to track high-performing items, regional profit margins, and seasonal sales trends.</li>
+                    <li><strong>Evaluates Store Obstacles:</strong> Focuses on answering how different customer segments purchase products and how discount strategies impact overall net profit.</li>
+                    <li><strong>Applies BI Lifecycle:</strong> Handles the complete Business Intelligence lifecycle including data preparation, exploratory data analysis, data modeling, and business reporting.</li>
+                </ul>
+            </div>
+            <div class="subsection">
+                <h3>Business Requirements & Objectives</h3>
+                <ul class="recruiter-list">
+                    <li><strong>Monitors Financial Performance:</strong> Tracks core business metrics including historical revenue patterns, net profit, quantities sold, and discount behaviors across multiple years.</li>
+                    <li><strong>Isolates Performance Drivers:</strong> Sets up tools to easily identify high-performing and underperforming product categories across different geographic regions.</li>
+                    <li><strong>Analyzes Customer Behavior:</strong> Groups and evaluates purchasing behaviors across various corporate and customer segments.</li>
+                    <li><strong>Generates Strategic Takeaways:</strong> Develops a clear presentation framework for executive-level recommendations to improve the store's future business performance.</li>
+                </ul>
             </div>
         </div>
 
-        <section class="case-steps">
-
-            <div class="step-panel active" id="panel-discovery">
-
-                <nav class="subnav">
-                    <a href="#s-overview">Project Overview</a>
-                    <a href="#s-business-understanding">Business Understanding</a>
-                    <a href="#s-business-requirements">Business Requirements</a>
-                </nav>
-
-                <div class="subsection" id="s-overview">
-                    <h3>Project Overview</h3>
-                    <p class="placeholder">[Add content: what this project is, who it's for, and what it delivers.]</p>
-                </div>
-
-                <div class="subsection" id="s-business-understanding">
-                    <h3>Business Understanding</h3>
-                    <p class="placeholder">[Add content: the business context — what kind of company/industry, what problem they were facing before this dashboard existed.]</p>
-                </div>
-
-                <div class="subsection" id="s-business-requirements">
-                    <h3>Business Requirements</h3>
-                    <p class="placeholder">[Add content: what stakeholders asked for — e.g. "leadership needed visibility into regional profit margins." Bullet list works well here.]</p>
-                </div>
-
+        <div id="phase2" class="step-panel">
+            <div class="subsection">
+                <h3>Data Sourcing Strategy</h3>
+                <ul class="recruiter-list">
+                    <li><strong>Base Retail Dataset:</strong> Sources an enterprise-grade retail transactional dataset from Kaggle containing 9,000+ clean records.</li>
+                    <li><strong>Synthetic Anomaly Injection:</strong> Uses Generative AI to intentionally inject realistic human entry errors, structural messiness, and logical bugs into the dataset.</li>
+                    <li><strong>Scaled Environment:</strong> Expands the dataset footprint into a robust testing environment of 20,000+ total records to test automated data auditing at scale.</li>
+                    <li><strong>Professional Experience Simulation:</strong> Design-engineers specific database challenges to systematically test data quality frameworks in both Excel and Power Query.</li>
+                </ul>
             </div>
-
-            <div class="step-panel" id="panel-collection">
-
-                <nav class="subnav">
-                    <a href="#s-data-collection">Data Collection</a>
-                    <a href="#s-dataset-understanding">Dataset Understanding</a>
-                </nav>
-
-                <div class="subsection" id="s-data-collection">
-                    <h3>Data Collection</h3>
-                    <p class="placeholder">[Add content: where the data came from, file format, how it was accessed.]</p>
-                </div>
-
-                <div class="subsection" id="s-dataset-understanding">
-                    <h3>Dataset Understanding</h3>
-                    <p class="placeholder">[Add content: tables/sheets involved, number of rows/columns, what each field represents.]</p>
-                    <div class="detail-grid">
-                        <div class="detail-field">
-                            <span class="field-label">Records</span>
-                            <span class="field-value">[e.g. 9,994 rows]</span>
-                        </div>
-                        <div class="detail-field">
-                            <span class="field-label">Tables</span>
-                            <span class="field-value">[e.g. Orders, Customers, Products]</span>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="subsection">
+                <h3>Dataset Dimension Fields</h3>
+                <ul class="recruiter-list">
+                    <li><strong>Monitors Transaction Identifiers:</strong> Evaluates tracking columns including unique Order IDs, Customer Names, and localized City or Region parameters.</li>
+                    <li><strong>Tracks Financial Variables:</strong> Structures data properties capturing financial variables such as itemized Product Categories, Sales Revenue, Quantities, and Net Profit margins.</li>
+                    <li><strong>Captures Shipping Elements:</strong> Includes multi-year performance timelines detailing specific Order Dates, Shipment Dates, and localized shipping modes.</li>
+                </ul>
             </div>
+        </div>
 
-            <div class="step-panel" id="panel-cleaning">
-
-                <nav class="subnav">
-                    <a href="#s-cleaning-issues">Cleaning Issues</a>
-                </nav>
-
-                <div class="subsection" id="s-cleaning-issues">
-                    <h3>Every Data Cleaning Issue</h3>
-                    <p class="placeholder">[Add logic steps implemented inside Power Query for anomalies handling here.]</p>
-                </div>
-
+        <div id="phase3" class="step-panel">
+            <div class="subsection">
+                <h3>CLEAN Framework Implementation</h3>
+                <ul class="recruiter-list">
+                    <li><strong>Conceptualize the Data (C):</strong> Checked the key metrics, columns, and dimensions to understand what each row represented before changing any data.</li>
+                    <li><strong>Locate Solvable Issues (L):</strong> Eyeballed the data and filtered distinct values to build an issue log tracking inconsistent dates, bad categories, and duplicates.</li>
+                    <li><strong>Evaluate Unsolvable Issues (E):</strong> Separated and flagged systemic data quality bugs that had no source of truth, like missing order dates or negative shipping durations.</li>
+                    <li><strong>Augment the Data (A):</strong> Improved the dataset by splitting customer names into components and creating helper columns to track business logic breaks.</li>
+                    <li><strong>Note and Document (N):</strong> Created a detailed table log tracking the column name, issue description, row counts, and your exact technical resolution.</li>
+                </ul>
             </div>
-
-            <div class="step-panel" id="panel-modeling">
-
-                <nav class="subnav">
-                    <a href="#s-data-modeling">Data Modeling</a>
-                </nav>
-
-                <div class="subsection" id="s-data-modeling">
-                    <h3>Data Modeling</h3>
-                    <p class="placeholder">[Add content: Star Schema structural setup metrics.]</p>
-                </div>
-
+            <div class="subsection">
+                <h3>Data Cleaning Strategy</h3>
+                <ul class="recruiter-list">
+                    <li><strong>Adopted Agile Principles:</strong> Focused on delivering data that is "good enough to analyze, share, and iterate on" instead of waiting for a perfect dataset.</li>
+                    <li><strong>Executed Three-Step Processing:</strong> Iterated through the data by first removing obvious dirty columns, standardizing text layouts, and finally refining values after initial analysis.</li>
+                </ul>
             </div>
-
-            <div class="step-panel" id="panel-design">
-
-                <nav class="subnav">
-                    <a href="#s-dashboard-planning">Dashboard Planning</a>
-                </nav>
-
-                <div class="subsection" id="s-dashboard-planning">
-                    <h3>Dashboard Planning</h3>
-                    <p class="placeholder">[Add UI layouts overview details.]</p>
-                </div>
-
+            <div class="subsection">
+                <h3>Excel Data Cleaning</h3>
+                <ul class="recruiter-list">
+                    <li><strong>Fixed Inconsistent Categorizations:</strong> Used <code>TRIM</code>, <code>PROPER</code>, and <code>XLOOKUP</code> functions to populate 163 missing product category values based on valid product details.</li>
+                    <li><strong>Standardized Text Data:</strong> Cleared out blank, whitespace-only, and hyphen (<code>"-"</code>) entries inside the Region and City columns, standardizing invalid values to <code>"Missing"</code>.</li>
+                    <li><strong>Enforced String Formatting:</strong> Corrected structural formatting for the Postal Code column by using the <code>TEXT</code> function to restore missing leading zeros and enforce a standard 5-digit layout.</li>
+                    <li><strong>Manually Populated Records:</strong> Investigated missing postal codes for Burlington, Vermont, and manually populated them with the correct verified ZIP code (<code>05401</code>).</li>
+                </ul>
             </div>
-
-            <div class="step-panel" id="panel-outcomes">
-
-                <nav class="subnav">
-                    <a href="#s-insights">Business Insights</a>
-                </nav>
-
-                <div class="subsection" id="s-insights">
-                    <h3>Business Insights</h3>
-                    <p class="placeholder">[Add data outcomes observations details.]</p>
-                </div>
-
+            <div class="subsection">
+                <h3>Power Query Staging Transformations</h3>
+                <ul class="recruiter-list">
+                    <li><strong>Removed Structural Waste:</strong> Dropped a completely Unnamed Column affecting 66 rows that held zero business value.</li>
+                    <li><strong>Standardized System Timestamps:</strong> Uniformed all records in both the Order Date and Shipment Date columns into a clean, matching <code>DD-MMM-YY</code> date format structure.</li>
+                    <li><strong>Parsed Customer Attributes:</strong> Split full names into separate component columns while preserving the original column to keep reporting features flexible.</li>
+                </ul>
             </div>
+            <div class="subsection">
+                <h3>Handling Logical Exceptions & Anomalies</h3>
+                <ul class="recruiter-list">
+                    <li><strong>Retained Systemic Nulls:</strong> Kept 327 missing order dates as null values and flagged them as quality bugs because the source data could not be reliably inferred.</li>
+                    <li><strong>Tracked Business Logic Violations:</strong> Identified 55 rows where the shipment date occurred before the order date; created a helper column to calculate shipment days and flagged the negative anomalies for review.</li>
+                    <li><strong>Flagged Zero Quantities:</strong> Isolated 39 rows where the item quantity equaled zero despite having a positive sales value, highlighting them as a business rule exception.</li>
+                    <li><strong>Isolated Financial Anomalies:</strong> Retained and flagged 41 negative sales rows (representing potential returns or adjustments) and 168 profit anomalies exceeding 200% of sales values for separate business validation.</li>
+                </ul>
+            </div>
+        </div>
 
-        </section>
+        <div id="phase4" class="step-panel">
+            <div class="subsection">
+                <h3>SCAN Framework Execution</h3>
+                <ul class="recruiter-list">
+                    <li><strong>Mapped Stakeholder Goals (S):</strong> Identified exactly which KPIs and dimensions mattered most to the business, aligning the dashboard view with core themes like revenue performance, regional margins, and discount impacts.</li>
+                    <li><strong>Scoped Core Data (C):</strong> Organized the raw dataset schema into clean, logical groups covering customer data, product categories, order variables, and geography fields.</li>
+                    <li><strong>Analyzed Aggregates & Anomalies (A):</strong> Evaluated high-level metrics and outlier patterns to establish target outputs for automated trend detection and anomaly tracking.</li>
+                    <li><strong>Targeted Notable Segments (N):</strong> Sliced the transactional records by specific timeframes and categories to surface early business insights during the modeling phase.</li>
+                </ul>
+            </div>
+            <div class="subsection">
+                <h3>SQL Analysis & MySQL Ingestion</h3>
+                <ul class="recruiter-list">
+                    <li><strong>Prepared Bulk Staging:</strong> Saved the cleaned retail data as a <code>CSV UTF-8</code> file from Excel and moved it to the secure MySQL server upload directory.</li>
+                    <li><strong>Authenticated Server Pipeline:</strong> Opened the Windows Command Prompt, navigated directly to the MySQL bin directory, and connected to the server as root to access the command-line client.</li>
+                    <li><strong>Executed High-Speed Ingestion:</strong> Selected the project database using <code>USE ecommerce_project;</code>, truncated the old tables to clean up previous data, and ran the <code>LOAD DATA INFILE</code> command to rapidly import the entire dataset.</li>
+                    <li><strong>Validated Structural Integrity:</strong> Verified the row counts using <code>SELECT COUNT(*)</code> to ensure all records loaded successfully, and ran <code>LIMIT 10</code> queries to confirm precise data integrity and <code>DATE</code> datatype conversions.</li>
+                </ul>
+            </div>
+            <div class="subsection">
+                <h3>Relational Normalization Strategy</h3>
+                <ul class="recruiter-list">
+                    <li><strong>Identifies Redundancy Issues:</strong> Spotted structural data duplication where customer descriptions and product details repeated inefficiently on every individual transaction row.</li>
+                    <li><strong>Normalized Flat Table Architecture:</strong> Separated the single, messy raw table by breaking down the fields and creating distinct, specialized entity tables.</li>
+                    <li><strong>Improved Database Maintainability:</strong> Created an organized system where each unique customer and product record was stored only once, drastically reducing redundancy and improving scalability.</li>
+                </ul>
+            </div>
+            <div class="subsection">
+                <h3>Star Schema Architecture</h3>
+                <ul class="recruiter-list">
+                    <li><strong>Defined Dimension Layer:</strong> Created <code>Customer_Dim</code> (storing names and segments) and <code>Product_Dim</code> (storing sub-categories) using <code>Customer_ID</code> and <code>Product_ID</code> as primary keys.</li>
+                    <li><strong>Established Fact Layer:</strong> Structured the central <code>Order_Fact</code> table using <code>Fact_ID</code> as the primary key to hold numeric transactional metrics like sales, quantities, discounts, and profits.</li>
+                    <li><strong>Configured Relationships:</strong> Connected the tables together using clear One-to-Many relationships, linking the dimension lookup keys straight into the central fact table.</li>
+                    <li><strong>Optimized Query Performance:</strong> Achieved faster query execution times, cleaner aggregations, and an industry-standard dashboard schema perfect for reporting tools.</li>
+                </ul>
+            </div>
+            <div class="subsection">
+                <h3>Exploratory Data Analysis (EDA)</h3>
+                <ul class="recruiter-list">
+                    <li><strong>Analyzed Financial Health Metrics:</strong> Calculated baseline aggregations across the entire dataset to establish global benchmarks for Total Sales, Net Profit, and overall Profit Margin percentages.</li>
+                    <li><strong>Investigated the Discount Impact:</strong> Ran distribution checks on discount percentages to isolate how promotional pricing scales against net profitability, identifying severe margin drops past specific discount thresholds.</li>
+                    <li><strong>Profiled Product Category Performance:</strong> Sliced transactional volumes against specific categories and sub-categories to instantly separate consistent high-margin items from high-revenue loss-leaders.</li>
+                    <li><strong>Evaluated Customer Purchasing Patterns:</strong> Grouped order records by corporate and consumer segments to evaluate average order values, quantities per transaction, and return frequencies.</li>
+                    <li><strong>Mapped Regional Demand Dynamics:</strong> Aggregated sales performance across geographic regions and cities to pinpoint underperforming territories and identify high-demand localized markets.</li>
+                    <li><strong>Tracked Time-Series Seasonal Trends:</strong> Audited historical sales performance across a multi-year timeline to capture critical monthly and quarterly seasonal spikes.</li>
+                </ul>
+            </div>
+        </div>
 
-        <section class="case-publish">
-            <a href="#" target="_blank" class="publish-btn">View Published Dashboard &rarr;</a>
-        </section>
+        <div id="phase5" class="step-panel">
+            <div class="subsection">
+                <h3>DASH Framework Execution</h3>
+                <ul class="recruiter-list">
+                    <li><strong>Managed Duplicates & Visual Noise (D):</strong> Cleared out redundant charts, excessive gridlines, and overlapping labels to keep the reporting space clean and focused.</li>
+                    <li><strong>Isolated Performance Anomalies (A):</strong> Built clear visual alerts and conditional formatting rules to automatically highlight critical profit drops and high-discount exceptions.</li>
+                    <li><strong>Enforced Standardization (S):</strong> Unified all font hierarchies, currency definitions, and button placements across every page to provide a seamless user experience.</li>
+                    <li><strong>Handled Blank & Null Views (H):</strong> Designed defensive data layouts to ensure that empty fields or unpopulated region filters do not break chart elements during live cross-filtering.</li>
+                </ul>
+            </div>
+            <div class="subsection">
+                <h3>Dashboard Planning & Visual Strategy</h3>
+                <ul class="recruiter-list">
+                    <li><strong>Structured a Multi-Page Interface:</strong> Designed a logical 3-page user path consisting of a Sales Dashboard, Product Dashboard, and an Executive Summary.</li>
+                    <li><strong>Integrated Interactive Controls:</strong> Implemented dynamic slicers for regions, order years, and product categories to allow users to customize their view on the fly.</li>
+                    <li><strong>Established Clear Navigation:</strong> Configured user-friendly page-navigation buttons and interactive bookmarks to let stakeholders move smoothly between deep-dives.</li>
+                </ul>
+            </div>
+            <div class="subsection">
+                <h3>Visual Selection Matrix</h3>
+                <ul class="recruiter-list">
+                    <li><strong>Applied KPI Status Cards:</strong> Placed bold summary boxes at the very top of the screens to display immediate numbers for Total Sales, Profit, and Orders.</li>
+                    <li><strong>Selected Line Charts:</strong> Utilized continuous line visualizations to track monthly and quarterly sales growth trends over the multi-year timeline.</li>
+                    <li><strong>Deployed Donut Visuals:</strong> Used compact donut charts to show clean market share distributions across main customer segments and high-level product categories.</li>
+                    <li><strong>Leveraged Horizontal Bar Charts:</strong> Chosen to rank localized sub-category performance and regional revenues cleanly without text wrapping issues.</li>
+                </ul>
+            </div>
+            <div class="subsection">
+                <h3>Interface Breakdowns</h3>
+                <ul class="recruiter-list">
+                    <li><strong>Sales Performance Page:</strong> Focused on global revenue trends, localized geographic mapping, and order quantity distributions.</li>
+                    <li><strong>Product Profitability Page:</strong> Created a dedicated area to drill down into product categories to isolate high-margin lines from loss-leaders.</li>
+                    <li><strong>Executive Summary Layer:</strong> Built a high-level manager space that translates complex visual charts directly into clear operational action items.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="phase6" class="step-panel">
+            <div class="subsection">
+                <h3>Business Insights</h3>
+                <ul class="recruiter-list">
+                    <li><strong>Analyzed Seasonal Sales Trends:</strong> Discovered that sales growth peaks sharply in March, while October and November show consistent declines, revealing a clear seasonal demand pattern.</li>
+                    <li><strong>Evaluated Customer Segments:</strong> Identified that the Consumer segment contributes 51.68% of total sales, significantly outperforming the Corporate (29.43%) and Home Office (18.89%) groups.</li>
+                    <li><strong>Isolated Low-Margin Categories:</strong> Found that the Furniture category records the weakest profitability despite maintaining reasonable sales volume, pointing to inefficient pricing or discount strategies.</li>
+                    <li><strong>Mapped Regional Revenues:</strong> Measured that the West region generates the highest sales ($1.39M), while the South region contributes the lowest ($0.94M), highlighting regional growth opportunities.</li>
+                    <li><strong>Ranked Sub-Category Performance:</strong> Ranked transactional items to show that Phones and Accessories dominate sales, while Fasteners remains the weakest-performing sub-category.</li>
+                    <li><strong>Uncovered the Sales vs. Profit Trap:</strong> Proved that high sales do not always mean high profits; highlighted that Cisco TelePresence generates strong sales but only a 0.82% profit margin, while HON Chairs operate at a -4.94% profit margin.</li>
+                    <li><strong>Audited Discounting Practices:</strong> Confirmed that Furniture receives one of the highest average discounts (16.09%) while generating the lowest profitability, showing that current discounting practices reduce margins without delivering a proportional return.</li>
+                </ul>
+            </div>
+            <div class="subsection">
+                <h3>Strategic Recommendations</h3>
+                <ul class="recruiter-list">
+                    <li><strong>Implement Seasonal Planning:</strong> Align promotions, inventory planning, and staffing with the March demand peak, while introducing targeted campaigns during October–November to reduce seasonal slowdowns.</li>
+                    <li><strong>Revamp Pricing Strategy:</strong> Re-evaluate Furniture pricing and discount policies by testing lower discount levels or premium bundle offers to improve profitability.</li>
+                    <li><strong>Optimize Category Performance:</strong> Develop focused marketing strategies for underperforming categories such as Furniture and Fasteners to improve their sales contribution.</li>
+                    <li><strong>Review Low-Margin Products:</strong> Review high-sales, low-margin products (like Cisco TelePresence and HON Chairs) to identify pricing, procurement, or cost optimization opportunities.</li>
+                    <li><strong>Target Regional Growth:</strong> Investigate the factors contributing to the South region's lower performance and replicate successful practices from the high-performing West region.</li>
+                    <li><strong>Expand Customer Segments:</strong> Continue leveraging the strong Consumer segment while expanding targeted campaigns for Corporate and Home Office customers to diversify revenue streams.</li>
+                    <li><strong>Capture Growth Opportunities:</strong> Continue investing in high-performing categories such as Technology and Office Supplies, while maintaining inventory and promotional support for top-performing products like the Canon ImageClass series.</li>
+                </ul>
+            </div>
+            <div class="subsection">
+                <h3>Challenges & Lessons Learned</h3>
+                <ul class="recruiter-list">
+                    <li><strong>Faced Complex Data Anomaly Auditing:</strong> Managed the tracking of synthetic human entry errors and invalid business logic rows across a large dataset without breaking report structures.</li>
+                    <li><strong>Balanced Volume vs. Value Visuals:</strong> Solved the challenge of representing high-volume, negative-margin items on the same chart layout without hiding baseline patterns.</li>
+                    <li><strong>Learned Scalable Schema Design:</strong> Confirmed that investing time up front in proper SQL database normalization makes dashboard construction significantly cleaner.</li>
+                </ul>
+            </div>
+            <div class="subsection">
+                <h3>Future Improvements</h3>
+                <ul class="recruiter-list">
+                    <li><strong>Integrate Machine Learning Forecasting:</strong> Plan to incorporate predictive modeling to forecast future monthly demand and optimize inventory levels before seasonal peaks.</li>
+                    <li><strong>Add Granular Profit Drill-Throughs:</strong> Aim to build automated drill-through summary sub-pages to trace individual transaction returns back to original promotional codes.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="case-publish">
+            <a href="#" target="_blank" class="publish-btn">View Published Dashboard →</a>
+        </div>
+
     </main>
 
-    <footer id="contact">
-        <div class="footer-content">
-            <h2>Let's collaborate</h2>
-            <div class="contact-links">
-                <a href="mailto:maheshwarir2305@gmail.com">maheshwarir2305@gmail.com</a>
-                <span class="footer-divider">|</span>
-                <a href="tel:+917760588181">+91 7760588181</a>
-                <span class="footer-divider">|</span>
-                <a href="https://www.linkedin.com/in/maheshwari-r-24b4bb398/" target="_blank">LinkedIn</a>
-            </div>
-        </div>
+    <footer>
+        &copy; 2026 Retail Data Analytics Case Study Portfolio. All Rights Reserved.
     </footer>
 
     <script>
-        const tabs = document.querySelectorAll('.step-tab');
-        const panels = document.querySelectorAll('.step-panel');
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                tabs.forEach(t => t.classList.remove('active'));
-                panels.forEach(p => p.classList.remove('active'));
-                tab.classList.add('active');
-                document.getElementById('panel-' + tab.dataset.step).classList.add('active');
+        function switchTab(phaseId) {
+            // Remove active classes from all panels
+            document.querySelectorAll('.step-panel').forEach(panel => {
+                panel.classList.remove('active');
             });
-        });
+            
+            // Remove active classes from all button elements
+            document.querySelectorAll('.step-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Activate the chosen content area
+            document.getElementById(phaseId).classList.add('active');
+            
+            // Highlight the clicked card item
+            const clickedTab = event.currentTarget;
+            clickedTab.classList.add('active');
+        }
     </script>
 
 </body>
