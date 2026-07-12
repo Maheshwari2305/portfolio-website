@@ -10,12 +10,10 @@
 <body>
 
     <main>
-        <!-- CASE STUDY HEADING -->
         <section class="case-heading">
             <a href="index.html#projects" class="back-link">&larr; Back to Portfolio</a>
             <h2>Ecommerce Sales & Profitability Dashboard</h2>
 
-            <!-- AT A GLANCE — fast scan for someone landing directly on this page -->
             <div class="glance-bar">
                 <div class="glance-tags">
                     <span class="skill-tab">Excel</span>
@@ -28,7 +26,6 @@
             </div>
         </section>
 
-        <!-- PHASE CARDS -->
         <section class="case-steps">
             <div class="step-tabs-container">
                 <div class="step-tabs">
@@ -69,9 +66,6 @@
                 </div>
             </div>
 
-            <!-- ============================================================ -->
-            <!-- PHASE 01: DISCOVERY & PLANNING -->
-            <!-- ============================================================ -->
             <div class="step-panel active" id="panel-discovery">
 
                 <nav class="subnav">
@@ -97,9 +91,6 @@
 
             </div>
 
-            <!-- ============================================================ -->
-            <!-- PHASE 02: DATA COLLECTION & UNDERSTANDING -->
-            <!-- ============================================================ -->
             <div class="step-panel" id="panel-collection">
 
                 <nav class="subnav">
@@ -136,23 +127,13 @@
                     </div>
                 </div>
 
-                <div class="subsection" id="s-data-profiling">
-                    <h3>Data Profiling</h3>
-                    <p class="placeholder">[Add content: initial quality check — nulls, duplicates, data types, outliers found before cleaning began. A summary table works well here.]</p>
-                </div>
-
             </div>
 
-            <!-- ============================================================ -->
-            <!-- PHASE 03: DATA CLEANING & QUALITY -->
-            <!-- ============================================================ -->
             <div class="step-panel" id="panel-cleaning">
 
                 <nav class="subnav">
                     <a href="#s-cleaning-issues">Cleaning Issues</a>
                     <a href="#s-clean-framework">CLEAN Framework</a>
-                    <a href="#s-scan-framework">SCAN Framework</a>
-                    <a href="#s-dash-framework">DASH Framework</a>
                     <a href="#s-power-query">Power Query Steps</a>
                 </nav>
 
@@ -183,64 +164,13 @@
                     </div>
                 </div>
 
-                <div class="subsection" id="s-clean-framework">
-                    <h3>CLEAN Framework</h3>
-                    <p class="placeholder">[Explain how you applied this framework to the dataset.]</p>
-                    <div class="framework-row">
-                        <div class="framework-letter"><span class="letter">C</span><span class="meaning">[Consistent]</span></div>
-                        <div class="framework-letter"><span class="letter">L</span><span class="meaning">[Legitimate]</span></div>
-                        <div class="framework-letter"><span class="letter">E</span><span class="meaning">[Error-free]</span></div>
-                        <div class="framework-letter"><span class="letter">A</span><span class="meaning">[Accurate]</span></div>
-                        <div class="framework-letter"><span class="letter">N</span><span class="meaning">[Normalized]</span></div>
-                    </div>
-                </div>
-
-                <div class="subsection" id="s-scan-framework">
-                    <h3>SCAN Framework</h3>
-                    <p class="placeholder">[Explain how you applied this framework to the dataset.]</p>
-                    <div class="framework-row">
-                        <div class="framework-letter"><span class="letter">S</span><span class="meaning">[Structure]</span></div>
-                        <div class="framework-letter"><span class="letter">C</span><span class="meaning">[Completeness]</span></div>
-                        <div class="framework-letter"><span class="letter">A</span><span class="meaning">[Accuracy]</span></div>
-                        <div class="framework-letter"><span class="letter">N</span><span class="meaning">[Normalization]</span></div>
-                    </div>
-                </div>
-
-                <div class="subsection" id="s-dash-framework">
-                    <h3>DASH Framework</h3>
-                    <p class="placeholder">[Explain how you applied this framework to the dataset.]</p>
-                    <div class="framework-row">
-                        <div class="framework-letter"><span class="letter">D</span><span class="meaning">[Duplicates]</span></div>
-                        <div class="framework-letter"><span class="letter">A</span><span class="meaning">[Anomalies]</span></div>
-                        <div class="framework-letter"><span class="letter">S</span><span class="meaning">[Standardization]</span></div>
-                        <div class="framework-letter"><span class="letter">H</span><span class="meaning">[Handling nulls]</span></div>
-                    </div>
-                </div>
-
-                <div class="subsection" id="s-power-query">
-                    <h3>Power Query Transformations (Step by Step)</h3>
-                    <p class="placeholder">[List each transformation in order — this reads well as a numbered list.]</p>
-                    <ol class="case-bullets numbered">
-                        <li class="placeholder-inline">[Step 1 — e.g. Removed duplicate rows based on Order ID]</li>
-                        <li class="placeholder-inline">[Step 2 — e.g. Split Customer Name into First/Last Name]</li>
-                        <li class="placeholder-inline">[Step 3 — e.g. Changed data types for Order Date, Sales, Profit]</li>
-                        <li class="placeholder-inline">[Step 4 — e.g. Created custom column for Profit Margin]</li>
-                    </ol>
-                </div>
-
             </div>
 
-            <!-- ============================================================ -->
-            <!-- PHASE 04: DATA MODELING -->
-            <!-- ============================================================ -->
             <div class="step-panel" id="panel-modeling">
 
                 <nav class="subnav">
                     <a href="#s-data-modeling">Data Modeling</a>
                     <a href="#s-star-schema">Star Schema</a>
-                    <a href="#s-normalization">Normalization</a>
-                    <a href="#s-relationships">Relationships</a>
-                    <a href="#s-dax-measures">DAX Measures</a>
                 </nav>
 
                 <div class="subsection" id="s-data-modeling">
@@ -248,60 +178,25 @@
                     <p class="placeholder">[Add content: overall modeling approach and reasoning.]</p>
                 </div>
 
-                <div class="subsection" id="s-star-schema">
-                    <h3>Star Schema</h3>
-                    <p class="placeholder">[Add content: fact table and dimension tables used. A diagram image can go here once you share the model screenshot.]</p>
-                </div>
-
-                <div class="subsection" id="s-normalization">
-                    <h3>Normalization (1NF, 2NF, 3NF) & Why Star Schema Was Chosen</h3>
-                    <div class="detail-grid three-col">
-                        <div class="issue-card compact">
-                            <div class="card-title">1NF</div>
-                            <p class="placeholder-inline">[Add explanation]</p>
-                        </div>
-                        <div class="issue-card compact">
-                            <div class="card-title">2NF</div>
-                            <p class="placeholder-inline">[Add explanation]</p>
-                        </div>
-                        <div class="issue-card compact">
-                            <div class="card-title">3NF</div>
-                            <p class="placeholder-inline">[Add explanation]</p>
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
-            <!-- ============================================================ -->
-            <!-- PHASE 05: DASHBOARD DESIGN -->
-            <!-- ============================================================ -->
             <div class="step-panel" id="panel-design">
 
                 <nav class="subnav">
                     <a href="#s-dashboard-planning">Dashboard Planning</a>
-                    <a href="#s-visual-selection">Visual Selection</a>
-                    <a href="#s-sales-dashboard">Sales Dashboard</a>
-                    <a href="#s-product-dashboard">Product Dashboard</a>
-                    <a href="#s-executive-summary">Executive Summary</a>
                 </nav>
 
                 <div class="subsection" id="s-dashboard-planning">
                     <h3>Dashboard Planning</h3>
-                    <p class="placeholder">[Add content: wireframing approach, why 3 pages, layout decisions, page navigation setup (buttons/bookmarks).]</p>
+                    <p class="placeholder">[Add content: wireframing approach.]</p>
                 </div>
 
             </div>
 
-            <!-- ============================================================ -->
-            <!-- PHASE 06: INSIGHTS & RECOMMENDATIONS -->
-            <!-- ============================================================ -->
             <div class="step-panel" id="panel-outcomes">
 
                 <nav class="subnav">
                     <a href="#s-insights">Business Insights</a>
-                    <a href="#s-recommendations">Recommendations</a>
-                    <a href="#s-challenges">Challenges Faced</a>
                 </nav>
 
                 <div class="subsection" id="s-insights">
@@ -313,13 +208,11 @@
 
         </section>
 
-        <!-- PUBLISH LINK -->
         <section class="case-publish">
             <a href="#" target="_blank" class="publish-btn">View Published Dashboard &rarr;</a>
         </section>
     </main>
 
-    <!-- FOOTER SECTION -->
     <footer id="contact">
         <div class="footer-content">
             <h2>Let's collaborate</h2>
