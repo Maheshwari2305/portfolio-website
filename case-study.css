@@ -1,11 +1,17 @@
-/* CASE STUDY PAGE — extends style.css tokens (purple #a100ff, teal #00d4ff) */
+/* ==========================================================================
+   CASE STUDY OVERRIDES — RIGID LAYOUT FIX
+   ========================================================================== */
 
-/* GLOBAL PAGE BACKGROUND — HERO IMAGE STAYS STATICALLY IN POSITION UNDER LAYOUT */
-html, body {
+/* FORCE ROOT BACKGROUND STRUCTURE */
+html, 
+body, 
+main,
+.case-steps,
+.case-heading {
     background: linear-gradient(rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.96)),
                 url('hero-bg.jpg') no-repeat center center fixed !important;
     background-size: cover !important;
-    scroll-behavior: smooth;
+    background-attachment: fixed !important;
 }
 
 /* HEADING */
@@ -13,7 +19,6 @@ html, body {
     padding: 100px 10% 40px;
     border-bottom: 1px solid #222;
     text-align: center;
-    background: transparent !important;
 }
 .back-link {
     display: inline-block;
@@ -33,7 +38,7 @@ html, body {
     color: #fff;
 }
 
-/* AT A GLANCE STRIP */
+/* AT A GLANCE PILLS SYSTEM */
 .glance-bar {
     max-width: 950px;
     margin: 35px auto 0;
@@ -65,36 +70,42 @@ html, body {
     border-right: none;
 }
 
-/* NAVIGATION STRIP CONTAINER — COMPLETELY TRANSPARENT & ROLLS AWAY NATURALLY ON SCROLL */
+/* THE CRITICAL CONTAINER FIX:
+   1. FORCED PURE TRANSPARENCY: Removes any blocking black overlay background.
+   2. FORCED STATIC POSITION: Will completely roll up out of sight naturally on scroll.
+*/
 .step-tabs-container {
-    position: relative; /* Restored to relative so it scrolls out of view naturally */
-    z-index: 10;
-    background: transparent !important; /* Forces total transparency to reveal the underlying background graphic */
-    border-bottom: 1px solid transparent;
-    margin: 0 -10% 30px;
-    padding: 24px 4%;
-    width: 120vw;
-    box-sizing: border-box;
+    position: static !important; /* OVERRIDES STICKY/FIXED ENTRIES TO STAY IN PLACE */
+    background: transparent !important; /* REMOVES ALL BLACK BACKGROUND OVERLAYS */
+    background-color: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    border-bottom: 1px solid transparent !important;
+    margin: 40px auto 30px !important;
+    padding: 0 4% !important;
+    width: 100% !important;
+    max-width: 1400px !important;
+    box-sizing: border-box !important;
 }
+
 .step-tabs {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 12px;
-    max-width: 1400px;
-    margin: 0 auto;
     width: 100%;
 }
 
-/* CARDS STYLING WITH EXTENDED HEIGHT AND BALANCED SEMI-TRANSPARENT GLOW BACKGROUND */
+/* CARDS WITH TRANSLUCENT MODERN ACCENT GLOW OVER YOUR BASE PAGE GRAPHIC */
 .step-tab {
-    background: rgba(20, 20, 20, 0.65); 
-    border: 1px solid #333;
-    border-top: 4px solid #333;
-    color: #ccc;
+    background: rgba(20, 20, 20, 0.55) !important; 
+    border: 1px solid #333 !important;
+    border-top: 4px solid #333 !important;
+    color: #ccc !important;
     padding: 20px 16px;  
     min-width: 175px;    
-    min-height: 110px; /* Kept the robust taller profile card height intact */
+    min-height: 110px;   
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -107,13 +118,13 @@ html, body {
     box-sizing: border-box;
 }
 .step-tab:hover {
-    border-color: #a100ff;
-    border-top-color: #a100ff;
+    border-color: #a100ff !important;
+    border-top-color: #a100ff !important;
 }
 .step-tab.active {
-    border-top-color: #a100ff;
-    border-color: #a100ff;
-    background: rgba(161, 0, 255, 0.12);
+    border-top-color: #a100ff !important;
+    border-color: #a100ff !important;
+    background: rgba(161, 0, 255, 0.12) !important;
     box-shadow: 0 0 20px rgba(161, 0, 255, 0.15);
 }
 .step-num {
@@ -122,7 +133,7 @@ html, body {
     color: #a100ff;
     letter-spacing: 1px;
 }
-.step-tab.active .step-title { color: #fff; }
+.step-tab.active .step-title { color: #fff !important; }
 .step-title {
     font-size: 0.8rem;
     font-weight: bold;
@@ -141,16 +152,14 @@ html, body {
     padding: 0 4px;
 }
 
-/* WRAPPER PANELS SETUPS */
+/* SCROLLABLE PANEL WRAPPERS */
 .case-steps {
     padding: 20px 10% 80px;
-    background: transparent !important;
 }
 .step-panel {
     display: none;
     max-width: 950px;
     margin: 0 auto;
-    background: transparent !important;
 }
 .step-panel.active {
     display: block;
@@ -180,14 +189,14 @@ html, body {
     color: #ccc;
     text-decoration: none;
     transition: 0.3s;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0, 0, 0, 0.4);
 }
 .subnav a:hover {
     border-color: #a100ff;
     color: #a100ff;
 }
 
-/* SUBSECTIONS */
+/* SUBSECTIONS INTERNALS */
 .subsection {
     margin-bottom: 60px;
 }
@@ -199,7 +208,6 @@ html, body {
     padding-left: 16px;
     border-left: 4px solid #a100ff;
 }
-
 .placeholder {
     color: #888;
     font-style: italic;
@@ -209,7 +217,7 @@ html, body {
     font-size: 1rem;
 }
 
-/* DETAIL GRID */
+/* DATA METRICS LAYOUTS */
 .detail-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -231,7 +239,7 @@ html, body {
     margin-bottom: 8px;
 }
 
-/* ISSUE CARDS */
+/* DATA QUALITY BLOCKS */
 .issue-card {
     border: 1px solid #222;
     border-left: 4px solid #a100ff;
@@ -240,11 +248,10 @@ html, body {
     margin-bottom: 24px;
 }
 
-/* PUBLISH LINK */
+/* PUBLISH BUTTON LINK AREA */
 .case-publish {
     padding: 40px 10% 120px;
     text-align: center;
-    background: transparent !important;
 }
 .publish-btn {
     display: inline-block;
@@ -263,15 +270,17 @@ html, body {
 /* FOOTER SECTION */
 footer {
     padding: 60px 10%;
-    background: #050505;
+    background: #050505 !important;
     text-align: center;
 }
 
-/* RESPONSIVE RUNTIMES */
+/* RESPONSIVE LAYOUT BEHAVIOR FOR CONTAINER SLIDER ELEMENTS */
 @media (max-width: 1250px) {
     .step-tabs-container {
-        overflow-x: auto;
-        padding: 16px 10px;
+        overflow-x: auto !important;
+        padding: 16px 10px !important;
+        margin: 20px 0 !important;
+        width: 100% !important;
     }
     .step-tabs {
         width: max-content;
