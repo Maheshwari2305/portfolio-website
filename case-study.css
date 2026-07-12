@@ -55,7 +55,7 @@
     border-right: none;
 }
 
-/* STICKY PHASE NAV — TRANSLUCENT CLEAN BACKGROUND */
+/* STICKY PHASE NAV — NOW COMPLETELY TRANSPARENT WITH ZERO BLACK BACKGROUND STRIP */
 .case-steps {
     padding: 30px 10% 100px;
 }
@@ -63,8 +63,8 @@
     position: sticky;
     top: 0;
     z-index: 20;
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid #222;
+    background: transparent !important; /* Forces total transparency over any container defaults */
+    border-bottom: 1px solid transparent;
     margin: 0 -10% 50px;
     padding: 24px 4%;
     width: 100vw;
@@ -81,20 +81,20 @@
     width: 100%;
 }
 
-/* LARGER PHASE CARDS STYLING */
+/* INCREASED HEIGHT AND SIZE STYLING FOR THE STEP CARDS */
 .step-tab {
     background: rgba(15, 15, 15, 0.7);
     border: 1px solid #333;
     border-top: 4px solid #333;
     color: #ccc;
-    padding: 18px 24px; /* Increased internal card size padding */
-    min-width: 165px;    /* Increased overall card footprint base width */
-    min-height: 80px;    /* Comfortably holds longer words across screen resets */
+    padding: 24px 24px;  /* Increased internal padding for breathing room */
+    min-width: 175px;    /* Distinct footprint size */
+    min-height: 110px;   /* FIXED TALL HEIGHT AS REQUESTED */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
     cursor: pointer;
     font-family: inherit;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -112,7 +112,7 @@
     box-shadow: 0 0 20px rgba(161, 0, 255, 0.15);
 }
 .step-num {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 900;
     color: #a100ff;
     letter-spacing: 1px;
@@ -124,13 +124,13 @@
     color: #ccc;
     text-transform: uppercase;
     letter-spacing: 0.3px;
-    line-height: 1.3;
+    line-height: 1.4;
 }
 
 /* FLOW INDICATOR ARROWS */
 .step-flow-arrow {
-    color: #444;
-    font-size: 1.2rem;
+    color: #555;
+    font-size: 1.3rem;
     font-weight: bold;
     user-select: none;
     padding: 0 4px;
@@ -247,7 +247,7 @@ footer {
 }
 
 /* RESPONSIVE DESIGN MANAGEMENT */
-@media (max-width: 1150px) {
+@media (max-width: 1200px) {
     .step-tabs-container {
         padding: 16px 20px;
     }
