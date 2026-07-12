@@ -83,7 +83,7 @@
             border-right: none;
         }
 
-        /* NAVIGATION CONTAINER - TRANSPARENT & IN POSITION */
+        /* NAVIGATION CONTAINER */
         .step-tabs-container {
             position: static !important;
             background: transparent !important;
@@ -174,18 +174,27 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* RECRUITER SUBSECTIONS LAYOUT */
+        /* GLASS CARD SUBSECTIONS MATCHING MAIN BUTTONS */
         .subsection {
-            margin-bottom: 45px;
+            background: rgba(20, 20, 20, 0.6);
+            border: 1px solid #333;
+            border-left: 4px solid #a100ff;
+            padding: 24px 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: border-color 0.3s ease;
         }
+        .subsection:hover {
+            border-color: #a100ff;
+        }
+        
         .subsection h3 {
             color: #fff;
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             font-weight: 700;
-            margin-bottom: 20px;
-            padding-left: 14px;
-            border-left: 4px solid #a100ff;
-            letter-spacing: 0.5px;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
         }
 
         /* EDITED MODERATE BULLET LISTS WITH BOLD HIGHLIGHTS */
@@ -196,10 +205,13 @@
         ul.recruiter-list li {
             position: relative;
             padding-left: 24px;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
             font-size: 0.98rem;
             color: #ccc;
             line-height: 1.6;
+        }
+        ul.recruiter-list li:last-child {
+            margin-bottom: 0;
         }
         ul.recruiter-list li::before {
             content: "•";
@@ -273,6 +285,7 @@
 </head>
 <body>
 
+    <!-- TOP TITLE HEADER -->
     <div class="case-heading">
         <a href="#" class="back-link">← Back To Portfolio</a>
         <h2>Ecommerce Sales & Profitability Dashboard</h2>
@@ -289,6 +302,7 @@
         </div>
     </div>
 
+    <!-- HORIZONTAL STEP BAR CONTAINER -->
     <div class="step-tabs-container">
         <div class="step-tabs">
             <div class="step-tab active" onclick="switchTab('phase1')">
@@ -328,8 +342,10 @@
         </div>
     </div>
 
+    <!-- MAIN SECTIONS DISPLAY LAYERS -->
     <main class="case-steps">
 
+        <!-- Phase 01 -->
         <div id="phase1" class="step-panel active">
             <div class="subsection">
                 <h3>Project Overview</h3>
@@ -358,6 +374,7 @@
             </div>
         </div>
 
+        <!-- Phase 02 -->
         <div id="phase2" class="step-panel">
             <div class="subsection">
                 <h3>Data Sourcing Strategy</h3>
@@ -378,6 +395,7 @@
             </div>
         </div>
 
+        <!-- Phase 03 -->
         <div id="phase3" class="step-panel">
             <div class="subsection">
                 <h3>CLEAN Framework Implementation</h3>
@@ -424,6 +442,7 @@
             </div>
         </div>
 
+        <!-- Phase 04 -->
         <div id="phase4" class="step-panel">
             <div class="subsection">
                 <h3>SCAN Framework Execution</h3>
@@ -473,6 +492,7 @@
             </div>
         </div>
 
+        <!-- Phase 05 -->
         <div id="phase5" class="step-panel">
             <div class="subsection">
                 <h3>DASH Framework Execution</h3>
@@ -510,6 +530,7 @@
             </div>
         </div>
 
+        <!-- Phase 06 -->
         <div id="phase6" class="step-panel">
             <div class="subsection">
                 <h3>Business Insights</h3>
@@ -552,6 +573,7 @@
             </div>
         </div>
 
+        <!-- CALL TO ACTION ACTION AREA -->
         <div class="case-publish">
             <a href="#" target="_blank" class="publish-btn">View Published Dashboard →</a>
         </div>
@@ -562,24 +584,17 @@
         &copy; 2026 Retail Data Analytics Case Study Portfolio. All Rights Reserved.
     </footer>
 
+    <!-- INTERACTIVE TAB SWITCHING SCRIPT -->
     <script>
         function switchTab(phaseId) {
-            // Remove active classes from all panels
             document.querySelectorAll('.step-panel').forEach(panel => {
                 panel.classList.remove('active');
             });
-            
-            // Remove active classes from all button elements
             document.querySelectorAll('.step-tab').forEach(tab => {
                 tab.classList.remove('active');
             });
-            
-            // Activate the chosen content area
             document.getElementById(phaseId).classList.add('active');
-            
-            // Highlight the clicked card item
-            const clickedTab = event.currentTarget;
-            clickedTab.classList.add('active');
+            event.currentTarget.classList.add('active');
         }
     </script>
 
