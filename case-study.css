@@ -1,11 +1,10 @@
 /* CASE STUDY PAGE — extends style.css tokens (purple #a100ff, teal #00d4ff) */
 
-/* SHARED PARALLAX BACKGROUND RESTORED (Matches your global theme asset setup) */
-.case-heading, .case-steps, .case-publish {
-    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.95)),
-                url('hero-bg.jpg');
+/* GLOBAL PAGE BACKGROUND — PROPERLY ROLLS HERO-BG.JPG ACROSS ALL BLOCKS */
+body, .case-heading, .case-steps, .case-publish {
+    background: linear-gradient(rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.96)),
+                url('hero-bg.jpg') no-repeat center center;
     background-size: cover;
-    background-position: center;
     background-attachment: fixed;
 }
 
@@ -64,7 +63,7 @@
     border-right: none;
 }
 
-/* STICKY CONTAINER ELEMENT — REMOVED INTERFERING BLACK BACKGROUND FOR TRANSPARENCY */
+/* STICKY NAV LAYER — COMPLETELY FLOATS TRANSPARENTLY OVER THE BACKGROUND ASSET */
 .case-steps {
     padding: 30px 10% 100px;
 }
@@ -72,8 +71,8 @@
     position: sticky;
     top: 0;
     z-index: 20;
-    background: transparent !important; /* Total background strip clarity achieved */
-    backdrop-filter: blur(4px);         /* Optional elegant overlay filter to read text neatly */
+    background: transparent !important; 
+    backdrop-filter: blur(4px); 
     border-bottom: 1px solid transparent;
     margin: 0 -10% 50px;
     padding: 24px 4%;
@@ -91,15 +90,15 @@
     width: 100%;
 }
 
-/* INCREASED HEIGHT AND SIZE STYLING FOR THE STEP CARDS */
+/* CARDS STYLING WITH HEIGHT ADJUSTMENTS */
 .step-tab {
-    background: rgba(15, 15, 15, 0.6); /* Slightly lowered alpha opacity for seamless blending */
+    background: rgba(15, 15, 15, 0.6); 
     border: 1px solid #333;
     border-top: 4px solid #333;
     color: #ccc;
     padding: 24px 24px;  
     min-width: 175px;    
-    min-height: 110px;   /* Preserved tall height layout */
+    min-height: 110px;   
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -139,7 +138,7 @@
 
 /* FLOW INDICATOR ARROWS */
 .step-flow-arrow {
-    color: #666; /* Styled bright enough to register flow, but balanced over the backdrop asset */
+    color: #666;
     font-size: 1.3rem;
     font-weight: bold;
     user-select: none;
