@@ -1,6 +1,6 @@
 /* CASE STUDY PAGE — extends style.css tokens (purple #a100ff, teal #00d4ff) */
 
-/* GLOBAL PAGE BACKGROUND — STAYS IN PLACE */
+/* GLOBAL PAGE BACKGROUND — HERO IMAGE STAYS STATICALLY IN POSITION UNDER LAYOUT */
 html, body {
     background: linear-gradient(rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.96)),
                 url('hero-bg.jpg') no-repeat center center fixed !important;
@@ -65,16 +65,15 @@ html, body {
     border-right: none;
 }
 
-/* STICKY CONFIGURATION — ADDED SOLID DARK MATRIX BACKING TO PREVENT TEXT BLEEDING */
+/* NAVIGATION STRIP CONTAINER — COMPLETELY TRANSPARENT & ROLLS AWAY NATURALLY ON SCROLL */
 .step-tabs-container {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    /* Rich solid dark tint blocks out underlying section headers perfectly as you scroll */
-    background: #090909 !important; 
-    border-bottom: 1px solid #222;
+    position: relative; /* Restored to relative so it scrolls out of view naturally */
+    z-index: 10;
+    background: transparent !important; /* Forces total transparency to reveal the underlying background graphic */
+    border-bottom: 1px solid transparent;
+    margin: 0 -10% 30px;
     padding: 24px 4%;
-    width: 100%;
+    width: 120vw;
     box-sizing: border-box;
 }
 .step-tabs {
@@ -87,15 +86,15 @@ html, body {
     width: 100%;
 }
 
-/* CARDS FOOTPRINT DEFINITIONS */
+/* CARDS STYLING WITH EXTENDED HEIGHT AND BALANCED SEMI-TRANSPARENT GLOW BACKGROUND */
 .step-tab {
-    background: rgba(25, 25, 25, 0.5); 
+    background: rgba(20, 20, 20, 0.65); 
     border: 1px solid #333;
     border-top: 4px solid #333;
     color: #ccc;
     padding: 20px 16px;  
     min-width: 175px;    
-    min-height: 110px;   
+    min-height: 110px; /* Kept the robust taller profile card height intact */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -142,9 +141,9 @@ html, body {
     padding: 0 4px;
 }
 
-/* WRAPPER SETUPS */
+/* WRAPPER PANELS SETUPS */
 .case-steps {
-    padding: 50px 10% 80px;
+    padding: 20px 10% 80px;
     background: transparent !important;
 }
 .step-panel {
@@ -208,10 +207,6 @@ html, body {
     padding: 14px 22px;
     background: rgba(161, 0, 255, 0.05);
     font-size: 1rem;
-}
-.placeholder-inline {
-    color: #888;
-    font-style: italic;
 }
 
 /* DETAIL GRID */
