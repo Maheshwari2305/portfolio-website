@@ -1,6 +1,6 @@
 /* CASE STUDY PAGE — extends style.css tokens (purple #a100ff, teal #00d4ff) */
 
-/* GLOBAL PAGE BACKGROUND */
+/* GLOBAL PAGE BACKGROUND — STAYS IN PLACE */
 html, body {
     background: linear-gradient(rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.96)),
                 url('hero-bg.jpg') no-repeat center center fixed !important;
@@ -65,16 +65,15 @@ html, body {
     border-right: none;
 }
 
-/* PERFECT STICKY CONTAINER FUNCTIONALITY */
+/* STICKY CONFIGURATION — ADDED SOLID DARK MATRIX BACKING TO PREVENT TEXT BLEEDING */
 .step-tabs-container {
     position: sticky;
     top: 0;
-    z-index: 100; /* High index to float over the scrollable layout sections */
-    background: rgba(10, 10, 10, 0.75) !important; /* Translucent tint ensures text remains readable when scrolled over */
-    backdrop-filter: blur(12px) saturate(180%); /* Neon blur aesthetic styling */
-    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    z-index: 100;
+    /* Rich solid dark tint blocks out underlying section headers perfectly as you scroll */
+    background: #090909 !important; 
     border-bottom: 1px solid #222;
-    padding: 20px 4%;
+    padding: 24px 4%;
     width: 100%;
     box-sizing: border-box;
 }
@@ -90,7 +89,7 @@ html, body {
 
 /* CARDS FOOTPRINT DEFINITIONS */
 .step-tab {
-    background: rgba(20, 20, 20, 0.6); 
+    background: rgba(25, 25, 25, 0.5); 
     border: 1px solid #333;
     border-top: 4px solid #333;
     color: #ccc;
@@ -143,7 +142,7 @@ html, body {
     padding: 0 4px;
 }
 
-/* PANEL AND WRAPPER PADDINGS */
+/* WRAPPER SETUPS */
 .case-steps {
     padding: 50px 10% 80px;
     background: transparent !important;
