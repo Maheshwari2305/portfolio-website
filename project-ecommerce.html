@@ -9,7 +9,7 @@
            GLOBAL DARK STYLES & BACKGROUND SETUP
            ========================================================================== */
         html {
-            scroll-behavior: smooth; /* Enables elegant fluid sliding behavior */
+            scroll-behavior: smooth;
         }
         body, 
         main, 
@@ -153,9 +153,7 @@
             user-select: none;
         }
 
-        /* ==========================================================================
-           SUB-NAV PILLS LAYOUT (ANCHOR BUTTON CARDS)
-           ========================================================================== */
+        /* SUB-NAV PILLS LAYOUT (ANCHOR LINKS) */
         .sub-navigation-bar {
             display: flex;
             justify-content: center;
@@ -197,10 +195,9 @@
             animation: fadeIn 0.4s ease;
         }
 
-        /* ANCHOR CONTENT TARGETS STYLING */
         .sub-content-panel {
             margin-bottom: 50px;
-            scroll-margin-top: 30px; /* Gives nice breathing room layout when jumped to */
+            scroll-margin-top: 30px;
         }
         .sub-content-panel h3 {
             color: #fff;
@@ -295,8 +292,10 @@
 </head>
 <body>
 
+    <!-- TOP TITLE HEADER -->
     <div class="case-heading">
-        <a href="#" class="back-link">← Back To Portfolio</a>
+        <!-- CRITICAL FIX: NAVIGATES BACK TO PORTFOLIO PAGE -->
+        <a href="javascript:history.back()" class="back-link">← Back To Portfolio</a>
         <h2>Ecommerce Sales & Profitability Dashboard</h2>
         
         <div class="glance-bar">
@@ -311,6 +310,7 @@
         </div>
     </div>
 
+    <!-- MAIN STEP TRACK OVERHEAD LINKS -->
     <div class="step-tabs-container">
         <div class="step-tabs">
             <div id="tab-phase1" class="step-tab active" onclick="switchMainPhase('phase1')">
@@ -350,8 +350,10 @@
         </div>
     </div>
 
+    <!-- MAIN DISPLAY SWITCHBOARD METRICS CONTAINER -->
     <main class="case-steps">
 
+        <!-- Phase 01: Discovery & Planning -->
         <div id="phase1" class="step-panel active">
             <div class="sub-navigation-bar">
                 <a href="#p1-overview" class="sub-pill">Project Overview</a>
@@ -386,6 +388,7 @@
             </div>
         </div>
 
+        <!-- Phase 02: Data Collection -->
         <div id="phase2" class="step-panel">
             <div class="sub-navigation-bar">
                 <a href="#p2-strategy" class="sub-pill">Data Sourcing Strategy</a>
@@ -411,6 +414,7 @@
             </div>
         </div>
 
+        <!-- Phase 03: Data Cleaning -->
         <div id="phase3" class="step-panel">
             <div class="sub-navigation-bar">
                 <a href="#p3-framework" class="sub-pill">CLEAN Framework</a>
@@ -465,13 +469,13 @@
             </div>
         </div>
 
+        <!-- Phase 04: Data Modeling -->
         <div id="phase4" class="step-panel">
             <div class="sub-navigation-bar">
                 <a href="#p4-scan" class="sub-pill">SCAN Framework</a>
                 <a href="#p4-ingestion" class="sub-pill">SQL & MySQL Ingestion</a>
                 <a href="#p4-normalization" class="sub-pill">Normalization</a>
                 <a href="#p4-star" class="sub-pill">Star Schema Architecture</a>
-                <a href="#p4-eda" class="sub-pill">Initial EDA</a>
             </div>
             
             <div id="p4-scan" class="sub-content-panel">
@@ -509,19 +513,9 @@
                     <li><strong>Optimized Query Performance:</strong> Achieved faster query execution times, cleaner aggregations, and an industry-standard dashboard schema perfect for reporting tools.</li>
                 </ul>
             </div>
-            <div id="p4-eda" class="sub-content-panel">
-                <h3>Exploratory Data Analysis (EDA)</h3>
-                <ul class="recruiter-list">
-                    <li><strong>Analyzed Financial Health Metrics:</strong> Calculated baseline aggregations across the entire dataset to establish global benchmarks for Total Sales, Net Profit, and overall Profit Margin percentages.</li>
-                    <li><strong>Investigated the Discount Impact:</strong> Ran distribution checks on discount percentages to isolate how promotional pricing scales against net profitability, identifying severe margin drops past specific discount thresholds.</li>
-                    <li><strong>Profiled Product Category Performance:</strong> Sliced transactional volumes against specific categories and sub-categories to instantly separate consistent high-margin items from high-revenue loss-leaders.</li>
-                    <li><strong>Evaluated Customer Purchasing Patterns:</strong> Grouped order records by corporate and consumer segments to evaluate average order values, quantities per transaction, and return frequencies.</li>
-                    <li><strong>Mapped Regional Demand Dynamics:</strong> Aggregated sales performance across geographic regions and cities to pinpoint underperforming territories and identify high-demand localized markets.</li>
-                    <li><strong>Tracked Time-Series Seasonal Trends:</strong> Audited historical sales performance across a multi-year timeline to capture critical monthly and quarterly seasonal spikes.</li>
-                </ul>
-            </div>
         </div>
 
+        <!-- Phase 05: Dashboard Design -->
         <div id="phase5" class="step-panel">
             <div class="sub-navigation-bar">
                 <a href="#p5-dash" class="sub-pill">DASH Framework</a>
@@ -533,10 +527,10 @@
             <div id="p5-dash" class="sub-content-panel">
                 <h3>DASH Framework Execution</h3>
                 <ul class="recruiter-list">
-                    <li><strong>Managed Duplicates & Visual Noise (D):</strong> Cleared out redundant charts, excessive gridlines, and overlapping labels to keep the reporting space clean and focused.</li>
-                    <li><strong>Isolated Performance Anomalies (A):</strong> Built clear visual alerts and conditional formatting rules to automatically highlight critical profit drops and high-discount exceptions.</li>
-                    <li><strong>Enforced Standardization (S):</strong> Unified all font hierarchies, currency definitions, and button placements across every page to provide a seamless user experience.</li>
-                    <li><strong>Handled Blank & Null Views (H):</strong> Designed defensive data layouts to ensure that empty fields or unpopulated region filters do not break chart elements during live cross-filtering.</li>
+                    <li><strong>Decision (D):</strong> Defines exactly what strategic actions must change based on visual triggers, and designates who is explicitly accountable for adjusting inventory or category parameters.</li>
+                    <li><strong>Audience (A):</strong> Structures the reporting layer strictly around the operational roles of the specific end-users who interact with the data daily.</li>
+                    <li><strong>Signal (S):</strong> Pinpoints the top 3-5 core tracking metrics that surface high-level performance status updates at a single glance.</li>
+                    <li><strong>Hierarchy (H):</strong> Implements visual layouts to enforce a natural reading order, ensuring viewers systematically see critical Layer 1 summaries, Layer 2 comparisons, and Layer 3 deep-dives.</li>
                 </ul>
             </div>
             <div id="p5-planning" class="sub-content-panel">
@@ -566,6 +560,7 @@
             </div>
         </div>
 
+        <!-- Phase 06: Insights & Recommendations -->
         <div id="phase6" class="step-panel">
             <div class="sub-navigation-bar">
                 <a href="#p6-insights" class="sub-pill">Business Insights</a>
@@ -609,12 +604,12 @@
             <div id="p6-future" class="sub-content-panel">
                 <h3>Future Improvements</h3>
                 <ul class="recruiter-list">
-                    <li><strong>Integrate Machine Learning Forecasting:</strong> Plan to incorporate predictive modeling to forecast future monthly demand and optimize inventory levels before seasonal peaks.</li>
-                    <li><strong>Add Granular Profit Drill-Throughs:</strong> Aim to build automated drill-through summary sub-pages to trace individual transaction returns back to original promotional codes.</li>
+                    <li><strong>Granular Feature Expansion:</strong> Addition of a visualization and deep-dive for customer analysis.</li>
                 </ul>
             </div>
         </div>
 
+        <!-- CALL TO ACTION AREA -->
         <div class="case-publish">
             <a href="#" target="_blank" class="publish-btn">View Published Dashboard →</a>
         </div>
@@ -625,9 +620,9 @@
         &copy; 2026 Retail Data Analytics Case Study Portfolio. All Rights Reserved.
     </footer>
 
+    <!-- INTERACTIVE MAIN TAB ENGINE -->
     <script>
         function switchMainPhase(phaseId) {
-            // Remove active tags from all main panel elements
             document.querySelectorAll('.step-panel').forEach(panel => {
                 panel.classList.remove('active');
             });
@@ -635,11 +630,9 @@
                 tab.classList.remove('active');
             });
 
-            // Make the targeted stage visible
             document.getElementById(phaseId).classList.add('active');
             document.getElementById('tab-' + phaseId).classList.add('active');
             
-            // Instantly snap the main layout window back to top when switching big phases
             window.scrollTo({ top: 0 });
         }
     </script>
